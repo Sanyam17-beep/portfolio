@@ -27,8 +27,8 @@ justify-content:flex-end;
 }
 #minicircle {
   transition: all cubic-bezier(0.19, 1, 0.22, 1) 1s;
-  width: 25px;
-  height: 25px;
+  width: 30px;
+  height: 30px;
   position: absolute;
   z-index: 99999;
   border-radius: 50%;
@@ -200,28 +200,51 @@ justify-content:flex-end;
 }
 
 @media only screen and (max-width: 600px) {
- #hero {
+ /* #hero {
   width: 112%;
   height: 105vh;
+  } */
+  #main{
+    overflow: hidden;
   }
 .mob{
-  margin-left: 10px !important;
-  font-size:9vh !important;
+  margin-left: 20px !important;
+  font-size:17vw !important;
 }
 #heading #secondh1 {
-  font-size: 7.4vh !important;
-  margin-left: 80px !important;
+  font-size: 15vw !important;
+  margin-left: 57px !important;
 
 }
 #side{
   right: -42px;
 }
 .wrapper{
-  top: 60vh;
+  top: 58vh;
 }
 .moi{
-
-  font-size:20px !important;
+ font-size:20px !important;
+}
+.oo{
+  margin-right:3.4em;
+}
+#about{
+flex-direction: column;
+  width: 100%;
+  height: 100vh;
+  padding-left: 10vw!important;
+padding-top: 10vh !important;
+}
+#textabout{
+  position: relative;
+  top: -75px;
+  padding: 40px !important;
+}
+#footer{
+  flex-direction: column;
+}
+#footerright{
+  gap: 20px !important;
 }
   }
 #nav a {
@@ -351,6 +374,7 @@ justify-content:flex-end;
   padding: 10vw 10vw;
   padding-left: 40vw;
   width: 100%;
+  height: 100vh;
   background-color: black;
   position: relative;
 }
@@ -380,5 +404,32 @@ justify-content:flex-end;
   border-radius: 100px;
   color: #fff;
   font-size: 12px;
+  text-decoration: none;
+}
+#footer {
+  color: #fff;
+  background-color: black;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0px 30px;
+}
+
+#footerleft {
+  display: flex;
+  gap: 5px;
+}
+
+#footerright {
+  display: flex;
+  gap: 30px;
+  padding:18px;
+}
+
+#footer a {
+  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: 500;
+  color: #fff;
   text-decoration: none;
 }

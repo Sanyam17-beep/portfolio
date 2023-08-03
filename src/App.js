@@ -1,10 +1,14 @@
 import './App.css';
-import React, { useEffect,useRef } from "react";
+import React, { useEffect,useRef,useState} from "react";
 import gsap from "gsap";
 import {IoArrowDownSharp,IoChatbubbleEllipses} from "react-icons/io5";
 import { FiArrowUpRight } from "react-icons/fi";
 import loh from './loh.jpeg';
 function App() {
+  const [dateState, setDateState] = useState(new Date());
+    useEffect(() => {
+           setInterval(() => setDateState(new Date()), 30000);
+    }, []);
   useEffect(() => {
     let xscale = 1;
     let yscale = 1;
@@ -88,7 +92,7 @@ function App() {
                         <h1 class="boundingelem" id="secondh1">Developer</h1>
                     </div>
                     <div class="bounding">
-                        <h5 class="boundingelem">Based in INDIA</h5>
+                        <h5 class="boundingelem ip">Based in INDIA</h5>
                     </div>
                 </div>
             </div>
@@ -97,7 +101,7 @@ function App() {
                     <h5 class="boundingelem moi">available for freelance</h5>
                 </div>
                 <div class="bounding">
-                    <h5 class="boundingelem moi">work for web</h5>
+                    <h5 class="boundingelem moi oo">work for web</h5>
                 </div>
             </div>
             <article className="wrapper">
@@ -297,12 +301,22 @@ function App() {
       <img src={loh} alt=""/>
             <div id="textabout">
                 <h5>(ABout me)</h5>
-                <p>I'm a Fullstack Developer with a passion for creating products that not only look good but also solve
-                    real problems. When I'm not sketching ideas on paper, you can find me binge-watching a Netflix
-                    series or playing video games. My design philosophy is simple: make it visually appealing,
-                    functional, and bring a smile to people's faces. I'm the designer you want on your team if you want
-                    to make people say 'I need that in my life!'.</p>
+                <p>I'm a dynamic full stack developer with extensive open source contributions, including project maintenance at AlphaVio Org and top-tier input to the Mirage UI frontend component library. Beyond coding, I indulge my passion for gaming, travel, and cuisine. Seamlessly blending technical prowess with a creative mindset, I offer unique perspectives to projects. Let's collaborate and turn your ideas into captivating digital experiences. "In code, each line narrates a story, and every project is an epic." Together, we'll script greatness.</p>
                 <a href="">Let's talk</a>
+            </div>
+        </div>
+        <div id="footer">
+            <div id="footerleft">
+                <h5>2023 &copy;</h5>
+                <h5>{dateState.toLocaleString('en-US', {
+                hour: 'numeric',
+                minute: 'numeric',
+                hour12: true,
+            
+            })}</h5>
+            </div>
+            <div id="footerright">
+                <a href="#">GitHub</a><a href="#">instagram</a><a href="#">linkedin</a><a href="#">twitter</a>
             </div>
         </div>
     </div>
