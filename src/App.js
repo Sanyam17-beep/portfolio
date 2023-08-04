@@ -4,8 +4,19 @@ import gsap from "gsap";
 import {IoArrowDownSharp,IoChatbubbleEllipses} from "react-icons/io5";
 import { FiArrowUpRight } from "react-icons/fi";
 import loh from './loh.jpeg';
+import LocomotiveScroll from 'locomotive-scroll';
 function App() {
   const [dateState, setDateState] = useState(new Date());
+  useEffect(() => {
+    const scroll = new LocomotiveScroll({
+      el: document.querySelector('#main'),
+      smooth: true,
+    });
+
+    return () => {
+      scroll.destroy();
+    };
+  }, []);
     useEffect(() => {
            setInterval(() => setDateState(new Date()), 30000);
     }, []);
