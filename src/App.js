@@ -1,10 +1,12 @@
 import './App.css';
 import React, { useEffect,useRef,useState} from "react";
 import gsap from "gsap";
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import {IoArrowDownSharp,IoChatbubbleEllipses} from "react-icons/io5";
 import { FiArrowUpRight } from "react-icons/fi";
 import loh from './loh.jpeg';
 import LocomotiveScroll from 'locomotive-scroll';
+gsap.registerPlugin(ScrollTrigger);
 function App() {
   const [dateState, setDateState] = useState(new Date());
   useEffect(() => {
@@ -82,6 +84,7 @@ function App() {
 
     firstPageAnim();
   }, []);
+
   return (
     <div className="App">
       <div id="side"> <IoChatbubbleEllipses id='ico' ></IoChatbubbleEllipses>
@@ -308,6 +311,23 @@ function App() {
                 </div>
             </div>
       </div>
+      <div id="second">
+            <div class="elem">
+                <h1>SKILLS</h1>
+                <h2>+</h2>
+                <div class="center14"></div>
+            </div>
+            <div class="elem">
+                <h1>Experience</h1>
+                <h2>+</h2>
+                <div class="center14"></div>
+            </div>
+            <div class="elem elemlast">
+                <h1>Projects</h1>
+                <h2>+</h2>
+                <div class="center14"></div>
+            </div>
+        </div>
         <div id="about">
       <img src={loh} alt=""/>
             <div id="textabout">

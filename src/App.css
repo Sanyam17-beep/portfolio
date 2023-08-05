@@ -204,20 +204,21 @@ justify-content:flex-end;
   width: 112%;
   height: 105vh;
   } */
+  
   #main{
     overflow: hidden;
   }
 .mob{
-  margin-left: 20px !important;
-  font-size:17vw !important;
+  margin-left: 32px !important;
+  font-size:15vw !important;
 }
 #heading #secondh1 {
-  font-size: 15vw !important;
-  margin-left: 57px !important;
+  font-size: 13vw !important;
+  margin-left: 70px !important;
 
 }
 #side{
-  right: -42px;
+  right: 0px;
 }
 .wrapper{
   top: 58vh;
@@ -233,18 +234,27 @@ flex-direction: column;
   width: 100%;
   height: 100vh;
   padding-left: 10vw!important;
-padding-top: 10vh !important;
+padding-top: 25vh !important;
 }
 #textabout{
   position: relative;
   top: -75px;
   padding: 40px !important;
 }
+#second{
+  height: 70vh !important;
+}
 #footer{
   flex-direction: column;
 }
 #footerright{
   gap: 20px !important;
+}
+.elem h1{
+  font-size: 30px !important;
+}
+.elem h2{
+  font-size: 90px !important;
 }
   }
 #nav a {
@@ -342,8 +352,9 @@ padding-top: 10vh !important;
 
 .elem h1 {
   text-transform: uppercase;
-  font-size: 7.6vw;
+  font-size: 5vw;
   opacity: .7;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .elemlast {
@@ -358,17 +369,40 @@ padding-top: 10vh !important;
   position: absolute;
   transform: translate(-50%, -50%);
 }
+.center14{
+  height: 0%;
+  width: 100%;
+  background-color: #888;
+  position: absolute;
+  mix-blend-mode:difference;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  transition: all ease .5s;
+}
+.elem:hover .center14{
+  height: 100%;
+}
+.elem>h2{
+  font-weight: 100;
+  font-size:100px;
+  margin-right:40px;
+  opacity: .7;
+ /* -webkit-text-stroke: 4px #fff; */
+}
 #second {
   color: #fff;
-  /* padding-right: 10vw;
-  padding-top: 200px; */
+  /* padding-right: 7vw; */
+  padding-top: 80px;
   background-color: black;
   width: 100%;
   height: 110vh;
+  
 }
 #about {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 50px;
   color: #fff;
   padding: 10vw 10vw;
@@ -397,7 +431,10 @@ padding-top: 10vh !important;
 #about img {
   width: 200px;
 }
-
+#textabout a:hover{
+  background-color: #fff;
+  color: black;
+}
 #textabout a {
   padding: 12px 22px;
   border: 1px solid #fff;
