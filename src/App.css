@@ -20,10 +20,15 @@ align-items: center;
 justify-content:flex-end;
   border-radius:4px 0 0 4px;
   background-color: #ccc7c7;
-  color: black;
+  
   z-index: 5000;
   width: 2em;
   height: 8em;
+}
+#side>a{
+  text-decoration: none;
+  color: black;
+  cursor: pointer;
 }
 #minicircle {
   transition: all cubic-bezier(0.19, 1, 0.22, 1) 1s;

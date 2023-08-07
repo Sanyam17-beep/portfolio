@@ -97,7 +97,10 @@ html.has-scroll-dragging {
   font-family:'General Sans';
   box-sizing: border-box;
 }
-
+*::selection{
+  background-color: rgba(0, 0, 0, 0);
+  color: rgb(199, 222, 185);
+}
 html, body {
   width: 100%;
   height: 100%;
