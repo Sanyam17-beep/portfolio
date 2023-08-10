@@ -92,14 +92,76 @@ function App() {
 
     firstPageAnim();
   }, []);
-
+  useEffect(()=>{
+    function enterAnimation(link, e, index) {
+      link.tl.tweenFromTo(0, "midway");
+    }
+    
+    // Mouseleave function
+    function leaveAnimation(link, e) {
+      link.tl.play();
+    }
+    
+    // Animations variables
+    let workLinkUnderlineAnimEnter;
+    let workLinkUnderlineAnimLeave;
+    
+    // Get all links
+    let workLinks = document.querySelectorAll(".js-work-link");
+    
+    workLinks.forEach((link, index, value) => {
+      let underline = link.querySelector(".underline");
+      link.tl = gsap.timeline({paused: true});
+      
+      link.tl.fromTo(underline, {
+        width: "0%",
+        left: "0%",
+      }, {
+        width: "100%",
+        duration: 0.2,
+      });
+      
+      link.tl.add("midway");
+      
+      link.tl.fromTo(underline, {
+        width: "100%",
+        left: "0%",
+      }, {
+        width: "0%",
+        left:"100%",
+        duration: 0.2, 
+        immediateRender: false
+      });
+    
+      // Mouseenter
+      console.log(link.tl);
+      link.addEventListener("mouseenter", (e) => {
+        enterAnimation(link, e, index);
+      });
+    
+      // Mouseleave
+      link.addEventListener("mouseleave", (e) => {
+        leaveAnimation(link, e);
+      });
+      return ()=>{
+        link.removeEventListener("mouseenter", (e) => {
+          enterAnimation(link, e, index);
+        });
+      
+        // Mouseleave
+        link.removeEventListener("mouseleave", (e) => {
+          leaveAnimation(link, e);
+        });
+      }
+    });
+  },[])
   return (
     <div className="App">
       <div id="side"> <IoChatbubbleEllipses id='ico' ></IoChatbubbleEllipses>
         <div id="resume">Resume</div>
       </div>
       <div id="minicircle"></div>
-      <div id="main">
+      <div id="main" data-scroll-container>
       <div id="hero">
             <Navbar></Navbar>
             <HeroBanner></HeroBanner>

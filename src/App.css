@@ -195,8 +195,29 @@ justify-content:flex-end;
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  padding: 20px 10px;
+  padding: 1.5rem 2.78vw;
   color: #fff;
+  height: 100%;
+  font-weight: bold;
+}
+
+#nav div{
+  cursor: pointer;
+}
+.outer-nav{
+  position: sticky;
+  z-index: 100;
+  top:0;
+  position: -webkit-sticky;
+}
+
+.skill_list{
+  list-style: none;
+  display: flex;
+}
+
+.my_items{
+  margin-left: 2.78vw;
 }
 
 @media only screen and (max-width: 600px) {
@@ -259,9 +280,25 @@ padding-top: 25vh !important;
   }
 #nav a {
   text-decoration: none;
-  font-size: 18px;
+  font-size: 1.125rem;
   color: #fff;
+  line-height: 42px;
+  
 }
+.underline {
+  display: block;
+  position: relative;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background-color: white;
+}
+
+#Name{
+  font-weight: 500;
+}
+
 
 #heading {
   margin-top: 90px;
