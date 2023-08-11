@@ -158,7 +158,7 @@ function App() {
   return (
     <div className="App">
       <div id="side"> <IoChatbubbleEllipses id='ico' ></IoChatbubbleEllipses>
-        <div id="resume">Resume</div>
+        <a href="https://drive.google.com/file/d/1TwE88G_fy0x3Q60NFUfIK9sgOSLrrmXA/view?usp=sharing" target="_blank"><div id="resume">Resume</div></a>
       </div>
       <div id="minicircle"></div>
       <div id="main" data-scroll-container>
