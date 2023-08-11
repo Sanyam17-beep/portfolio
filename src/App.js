@@ -17,6 +17,7 @@ import Footer from './components/Footer';
 gsap.registerPlugin(ScrollTrigger);
 function App() {
   const [dateState, setDateState] = useState(new Date());
+ 
   useEffect(() => {
     const scroll = new LocomotiveScroll({
       el: document.querySelector('#main'),
@@ -62,6 +63,15 @@ function App() {
     return () => {
       window.removeEventListener('mousemove', circleChaptaKaro);
     };
+  }, []);
+  const l = (event) => {
+  alert("jbkjdb");
+  }
+  useEffect(() => {
+    window.addEventListener('scroll', l);
+  
+    return () =>
+      window.removeEventListener('scroll', l);
   }, []);
   useEffect(() => {
     function firstPageAnim() {
