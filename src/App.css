@@ -298,7 +298,11 @@ padding-top: 25vh !important;
 #Name{
   font-weight: 500;
 }
-
+.animatedClass{
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+}
 
 #heading {
   margin-top: 90px;
