@@ -6,25 +6,24 @@ import { ScrollTrigger } from 'gsap/all';
 
 function Navbar() {
   const [showMenu,setShowMenu] = useState(false);
+  
   const animatedHide = (event)=>{
-    let ele = document.getElementById("menuHead")
-    let oldheight = ele.getBoundingClientRect().height;
-    let newheight = oldheight ? 0:"auto"
-    TweenMax.set("#menuHead",{height:newheight,overflow:"hidden"})
-    console.log(newheight);
-    TweenMax.from("#menuHead",0.2,{height:oldheight});
-    console.log(oldheight);
-    showAnimatedNavItems();
+    gsap.to("#menuHead",0,{height:0,overflow:"hidden"});
+    gsap.to(".navItems",{height:"auto"})
+    setShowMenu(!showMenu)
   }
-  const showAnimatedNavItems = ()=>{
-    let ele1 = document.querySelector(".navItems")
-    let oldheight1 = ele1.getBoundingClientRect().height;
-    let newheight1 = oldheight1 ? 0:"auto"
-    TweenMax.set(".navItems",{height:newheight1})
-    console.log(newheight1);
-    TweenMax.from(".navItems",{height:oldheight1,delay:0.3});
-    console.log(oldheight1);
-
+  if(showMenu){
+    gsap.to(".navItems",{height:0,scrollTrigger:{
+      trigger:".navItems",
+      scroller:"#main",
+      start:"top",
+    }});
+    gsap.to("#menuHead",{height:"auto",overflow:"hidden",scrollTrigger:{
+      trigger:"#menuHead",
+      scroller:"#main",
+      start:"top"
+    }}).reverse(1)
+    setShowMenu(!showMenu);
   }
   return (
     <nav className='outer-nav' data-scroll data-scroll-sticky data-scroll-target="#main">

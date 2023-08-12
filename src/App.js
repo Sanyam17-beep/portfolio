@@ -18,13 +18,26 @@ gsap.registerPlugin(ScrollTrigger);
 function App() {
   const [dateState, setDateState] = useState(new Date());
   useEffect(() => {
-    const scroll = new LocomotiveScroll({
+    const locoScroll = new LocomotiveScroll({
       el: document.querySelector('#main'),
-      smooth: true,
+      smooth: true
     });
 
+    locoScroll.on("scroll",ScrollTrigger.update);
+    ScrollTrigger.scrollerProxy("#main", {
+      scrollTop(value) {
+        return arguments.length ? locoScroll.scrollTo(value, 0, 0) : locoScroll.scroll.instance.scroll.y;
+      }, 
+      getBoundingClientRect() {
+     return {top: 0, left: 0, width: window.innerWidth, height: window.innerHeight};
+      },
+      pinType: document.querySelector("#main").style.transform ? "transform" : "fixed"
+    });
+    ScrollTrigger.addEventListener("refresh", () => locoScroll.update());
+    ScrollTrigger.refresh(); 
+
     return () => {
-      scroll.destroy();
+      locoScroll.destroy();
     };
   }, []);
     useEffect(() => {
@@ -161,7 +174,7 @@ function App() {
         <a href="https://drive.google.com/file/d/1TwE88G_fy0x3Q60NFUfIK9sgOSLrrmXA/view?usp=sharing" target="_blank"><div id="resume">Resume</div></a>
       </div>
       <div id="minicircle"></div>
-      <div id="main" data-scroll-container>
+      <div id="main" data-scroll-container data-scroll-speed="2">
       <div id="hero">
             <Navbar></Navbar>
             <HeroBanner></HeroBanner>
