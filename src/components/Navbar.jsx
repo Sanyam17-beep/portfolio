@@ -16,7 +16,6 @@ export const scrollAnimation = (showMenu,setShowMenu)=>{
       scroller:"#main",
       start:"bottom 15%",
       end:"top -3%",
-      markers:true,
       toggleActions: `restart none restart none`,
       // onEnter:()=>{
       //   if(showMenu)tl.play();
