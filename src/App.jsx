@@ -6,7 +6,7 @@ import {IoArrowDownSharp,IoChatbubbleEllipses} from "react-icons/io5";
 import { FiArrowUpRight } from "react-icons/fi";
 import loh from './loh.jpeg';
 import LocomotiveScroll from 'locomotive-scroll';
-import Navbar from './components/Navbar';
+import Navbar,{scrollAnimation} from './components/Navbar';
 import HeroBanner from './components/HeroBanner';
 import Clients from './components/Clients';
 import Skills from './components/Skills';
@@ -14,23 +14,52 @@ import Experience from './components/Experience';
 import Projects from './components/Projects';
 import About from './components/About';
 import Footer from './components/Footer';
+import Preloader from './components/Preloader';
 gsap.registerPlugin(ScrollTrigger);
+
 function App() {
   const [dateState, setDateState] = useState(new Date());
+  const [showMenu,setShowMenu] = useState(null);
+  const [loading,isLoading] = useState(true);
+  const slideUp = ()=>{
+    const tl = gsap.timeline();
+    tl.to(".pre",{height:0,overflow:"hidden",duration:2,smoothOrigin:true})
+      .call(isLoading,[false]);
+  }
   useEffect(() => {
-    const scroll = new LocomotiveScroll({
+    if(loading)return;
+    console.log("Zukabee");
+    const locoScroll = new LocomotiveScroll({
       el: document.querySelector('#main'),
-      smooth: true,
+      smooth: true
     });
 
+    locoScroll.on( 'scroll', ( instance ) => {
+      ScrollTrigger.update();
+      document.documentElement.setAttribute( 'data-scrolling', instance.direction );
+    });
+    ScrollTrigger.scrollerProxy("#main", {
+      scrollTop(value) {
+        return arguments.length ? locoScroll.scrollTo(value, 0, 0) : locoScroll.scroll.instance.scroll.y;
+      }, 
+      getBoundingClientRect() {
+     return {top: 0, left: 0, width: window.innerWidth, height: window.innerHeight};
+      },
+      pinType: document.querySelector("#main").style.transform ? "transform" : "fixed"
+    });
+    ScrollTrigger.addEventListener( 'refresh', () => locoScroll.update() );
+    ScrollTrigger.refresh();
+    scrollAnimation(showMenu,setShowMenu);
     return () => {
-      scroll.destroy();
+      locoScroll.destroy();
     };
-  }, []);
+  }, [loading]);
     useEffect(() => {
            setInterval(() => setDateState(new Date()), 30000);
-    }, []);
+    }, [loading]);
+    
   useEffect(() => {
+    if(loading)return
     let xscale = 1;
     let yscale = 1;
     let xprev = 0;
@@ -62,8 +91,9 @@ function App() {
     return () => {
       window.removeEventListener('mousemove', circleChaptaKaro);
     };
-  }, []);
+  }, [loading]);
   useEffect(() => {
+    if(loading)return
     function firstPageAnim() {
       var tl = gsap.timeline();
 
@@ -91,8 +121,9 @@ function App() {
     }
 
     firstPageAnim();
-  }, []);
+  }, [loading]);
   useEffect(()=>{
+    if(loading)return
     function enterAnimation(link, e, index) {
       link.tl.tweenFromTo(0, "midway");
     }
@@ -102,10 +133,7 @@ function App() {
       link.tl.play();
     }
     
-    // Animations variables
-    let workLinkUnderlineAnimEnter;
-    let workLinkUnderlineAnimLeave;
-    
+   
     // Get all links
     let workLinks = document.querySelectorAll(".js-work-link");
     
@@ -154,16 +182,23 @@ function App() {
         });
       }
     });
+  },[loading])
+  useEffect(()=>{
+    console.log("Hey babde");
+    setTimeout(slideUp,12000);
   },[])
   return (
-    <div className="App">
+    <>   
+    {loading && <Preloader></Preloader>} 
+    {loading===false && (
+      <div className="App">
       <div id="side"> <IoChatbubbleEllipses id='ico' ></IoChatbubbleEllipses>
         <a href="https://drive.google.com/file/d/1TwE88G_fy0x3Q60NFUfIK9sgOSLrrmXA/view?usp=sharing" target="_blank"><div id="resume">Resume</div></a>
       </div>
       <div id="minicircle"></div>
-      <div id="main" data-scroll-container>
+      <div id="main" data-scroll-container data-scroll-speed="2">
+      <Navbar showMenu={showMenu} setShowMenu={setShowMenu} ScrollTrigger={ScrollTrigger}></Navbar>
       <div id="hero">
-            <Navbar></Navbar>
             <HeroBanner></HeroBanner>
             <div id="chhotiheadings">
                 <div class="bounding">
@@ -192,6 +227,8 @@ function App() {
       <Footer dateState={dateState}></Footer>
     </div>
     </div>
+    )}
+  </>
   );
 }
 
