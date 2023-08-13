@@ -14,13 +14,20 @@ import Experience from './components/Experience';
 import Projects from './components/Projects';
 import About from './components/About';
 import Footer from './components/Footer';
+import Preloader from './components/Preloader';
 gsap.registerPlugin(ScrollTrigger);
 
 function App() {
   const [dateState, setDateState] = useState(new Date());
   const [showMenu,setShowMenu] = useState(null);
-  
+  const [loading,isLoading] = useState(true);
+  const slideUp = ()=>{
+    const tl = gsap.timeline();
+    tl.to(".pre",{height:0,overflow:"hidden",duration:2,smoothOrigin:true})
+      .call(isLoading,[false]);
+  }
   useEffect(() => {
+    if(loading)return;
     console.log("Zukabee");
     const locoScroll = new LocomotiveScroll({
       el: document.querySelector('#main'),
@@ -46,12 +53,13 @@ function App() {
     return () => {
       locoScroll.destroy();
     };
-  }, []);
+  }, [loading]);
     useEffect(() => {
            setInterval(() => setDateState(new Date()), 30000);
-    }, []);
+    }, [loading]);
     
   useEffect(() => {
+    if(loading)return
     let xscale = 1;
     let yscale = 1;
     let xprev = 0;
@@ -83,8 +91,9 @@ function App() {
     return () => {
       window.removeEventListener('mousemove', circleChaptaKaro);
     };
-  }, []);
+  }, [loading]);
   useEffect(() => {
+    if(loading)return
     function firstPageAnim() {
       var tl = gsap.timeline();
 
@@ -112,8 +121,9 @@ function App() {
     }
 
     firstPageAnim();
-  }, []);
+  }, [loading]);
   useEffect(()=>{
+    if(loading)return
     function enterAnimation(link, e, index) {
       link.tl.tweenFromTo(0, "midway");
     }
@@ -172,10 +182,16 @@ function App() {
         });
       }
     });
+  },[loading])
+  useEffect(()=>{
+    console.log("Hey babde");
+    setTimeout(slideUp,12000);
   },[])
-  
   return (
-    <div className="App">
+    <>   
+    {loading && <Preloader></Preloader>} 
+    {loading===false && (
+      <div className="App">
       <div id="side"> <IoChatbubbleEllipses id='ico' ></IoChatbubbleEllipses>
         <a href="https://drive.google.com/file/d/1TwE88G_fy0x3Q60NFUfIK9sgOSLrrmXA/view?usp=sharing" target="_blank"><div id="resume">Resume</div></a>
       </div>
@@ -211,6 +227,8 @@ function App() {
       <Footer dateState={dateState}></Footer>
     </div>
     </div>
+    )}
+  </>
   );
 }
 

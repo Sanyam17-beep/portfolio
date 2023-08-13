@@ -105,10 +105,68 @@ html, body {
   width: 100%;
   height: 100%;
 }
+html{
+  background-color: black;
+}
 html::-webkit-scrollbar{
   display: none;
 }
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.pre{
+  text-align: center;
+  overflow: hidden;
+}
+.loader{
+  width: 100%;
+  height: 100vh;
+ background-color: rgb(163, 163, 163);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#name{
+  font-size:x-large;
+  font: 600;
+}
+.load{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.progress{
+  position: relative;
+  top: 2.5px;
+  margin:0px 15px;
+  width: 80px;
+  height: 2px;
+  background-color: #fff;
+  
+}
+.bar{
+position: relative;
+width: 0;
+height:100%;
+background-color: rgb(0, 0, 0);
+}
+#percent{
+  position: absolute;
+margin-left: 220px;
+padding-top: 3px;
+font-size: medium;
+}
+#quote{
+  position: absolute;
+ bottom: 250px;
+ width: 100%;
+}
+#blc{
+  display: block;
+}
+#author{
+  position: relative;
+  right: 0px;
 }
