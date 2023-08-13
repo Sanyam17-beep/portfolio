@@ -6,7 +6,7 @@ import {IoArrowDownSharp,IoChatbubbleEllipses} from "react-icons/io5";
 import { FiArrowUpRight } from "react-icons/fi";
 import loh from './loh.jpeg';
 import LocomotiveScroll from 'locomotive-scroll';
-import Navbar from './components/Navbar';
+import Navbar,{scrollAnimation} from './components/Navbar';
 import HeroBanner from './components/HeroBanner';
 import Clients from './components/Clients';
 import Skills from './components/Skills';
@@ -15,15 +15,22 @@ import Projects from './components/Projects';
 import About from './components/About';
 import Footer from './components/Footer';
 gsap.registerPlugin(ScrollTrigger);
+
 function App() {
   const [dateState, setDateState] = useState(new Date());
+  const [showMenu,setShowMenu] = useState(null);
+  
   useEffect(() => {
+    console.log("Zukabee");
     const locoScroll = new LocomotiveScroll({
       el: document.querySelector('#main'),
       smooth: true
     });
 
-    locoScroll.on("scroll",ScrollTrigger.update);
+    locoScroll.on( 'scroll', ( instance ) => {
+      ScrollTrigger.update();
+      document.documentElement.setAttribute( 'data-scrolling', instance.direction );
+    });
     ScrollTrigger.scrollerProxy("#main", {
       scrollTop(value) {
         return arguments.length ? locoScroll.scrollTo(value, 0, 0) : locoScroll.scroll.instance.scroll.y;
@@ -33,9 +40,9 @@ function App() {
       },
       pinType: document.querySelector("#main").style.transform ? "transform" : "fixed"
     });
-    ScrollTrigger.addEventListener("refresh", () => locoScroll.update());
-    ScrollTrigger.refresh(); 
-
+    ScrollTrigger.addEventListener( 'refresh', () => locoScroll.update() );
+    ScrollTrigger.refresh();
+    scrollAnimation(showMenu,setShowMenu);
     return () => {
       locoScroll.destroy();
     };
@@ -43,6 +50,7 @@ function App() {
     useEffect(() => {
            setInterval(() => setDateState(new Date()), 30000);
     }, []);
+    
   useEffect(() => {
     let xscale = 1;
     let yscale = 1;
@@ -115,10 +123,7 @@ function App() {
       link.tl.play();
     }
     
-    // Animations variables
-    let workLinkUnderlineAnimEnter;
-    let workLinkUnderlineAnimLeave;
-    
+   
     // Get all links
     let workLinks = document.querySelectorAll(".js-work-link");
     
@@ -168,6 +173,7 @@ function App() {
       }
     });
   },[])
+  
   return (
     <div className="App">
       <div id="side"> <IoChatbubbleEllipses id='ico' ></IoChatbubbleEllipses>
@@ -176,7 +182,7 @@ function App() {
       <div id="minicircle"></div>
       <div id="main" data-scroll-container data-scroll-speed="2">
       <div id="hero">
-            <Navbar></Navbar>
+            <Navbar showMenu={showMenu} setShowMenu={setShowMenu} ScrollTrigger={ScrollTrigger}></Navbar>
             <HeroBanner></HeroBanner>
             <div id="chhotiheadings">
                 <div class="bounding">

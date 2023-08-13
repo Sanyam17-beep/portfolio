@@ -1,30 +1,45 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import {gsap} from "gsap"
 import { TweenLite } from 'gsap/gsap-core';
 import { TweenMax } from 'gsap/gsap-core';
 import { ScrollTrigger } from 'gsap/all';
 
-function Navbar() {
-  const [showMenu,setShowMenu] = useState(false);
+export const scrollAnimation = (showMenu,setShowMenu)=>{
+  console.log("SGss",showMenu);
+  
+  let tl = gsap.timeline();
+  tl.to(".navItems",{height:0})
+    .to("#menuHead",{height:"auto",overflow:"hidden"},0)
+  
+  
+  ScrollTrigger.create({
+    animation:tl,
+    trigger:"#hero",
+      scroller:"#main",
+      start:"bottom 15%",
+      end:"top -3%",
+      toggleActions: `restart none none restart`,
+      onEnter:()=>{
+        tl.play();
+      },
+      onEnterBack:()=>{
+        tl.play();
+      }
+    }
+  );
+
+  
+
+}
+
+function Navbar({showMenu,setShowMenu}) {
   
   const animatedHide = (event)=>{
     gsap.to("#menuHead",0,{height:0,overflow:"hidden"});
-    gsap.to(".navItems",{height:"auto"})
-    setShowMenu(!showMenu)
+    gsap.to(".navItems",{height:"auto"});
+    setShowMenu(true);
   }
-  if(showMenu){
-    gsap.to(".navItems",{height:0,scrollTrigger:{
-      trigger:".navItems",
-      scroller:"#main",
-      start:"top",
-    }});
-    gsap.to("#menuHead",{height:"auto",overflow:"hidden",scrollTrigger:{
-      trigger:"#menuHead",
-      scroller:"#main",
-      start:"top"
-    }}).reverse(1)
-    setShowMenu(!showMenu);
-  }
+  
   return (
     <nav className='outer-nav' data-scroll data-scroll-sticky data-scroll-target="#main">
     <div id="nav">
