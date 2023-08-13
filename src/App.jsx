@@ -1,5 +1,5 @@
 import './App.css';
-import React, { useEffect,useRef,useState} from "react";
+import React, { useEffect,useState} from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import {IoArrowDownSharp,IoChatbubbleEllipses} from "react-icons/io5";
@@ -197,9 +197,8 @@ function App() {
       </div>
       <div id="minicircle"></div>
       <div id="main" data-scroll-container data-scroll-speed="2">
-      <Navbar showMenu={showMenu} setShowMenu={setShowMenu} ScrollTrigger={ScrollTrigger}></Navbar>
       <div id="hero">
-            
+      <Navbar showMenu={showMenu} setShowMenu={setShowMenu} ScrollTrigger={ScrollTrigger}></Navbar>
             <HeroBanner></HeroBanner>
             <div id="chhotiheadings">
                 <div class="bounding">
