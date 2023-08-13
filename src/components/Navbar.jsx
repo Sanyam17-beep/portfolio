@@ -4,12 +4,10 @@ import { TweenLite } from 'gsap/gsap-core';
 import { TweenMax } from 'gsap/gsap-core';
 import { ScrollTrigger } from 'gsap/all';
 
-export const scrollAnimation = (showMenu,setShowMenu)=>{
-  console.log("SGss",showMenu);
-  
+export const scrollAnimation = (showMenu,setShowMenu)=>{  
   let tl = gsap.timeline();
-  tl.to(".navItems",{height:0})
-    .to("#menuHead",{height:"auto",overflow:"hidden"},0)
+  tl.to(".navItems",{height:0},0.2)
+    .to("#menuHead",{height:"auto",overflow:"hidden"},0.2)
   
   
   ScrollTrigger.create({
@@ -18,13 +16,16 @@ export const scrollAnimation = (showMenu,setShowMenu)=>{
       scroller:"#main",
       start:"bottom 15%",
       end:"top -3%",
-      toggleActions: `restart none none restart`,
-      onEnter:()=>{
-        tl.play();
-      },
-      onEnterBack:()=>{
-        tl.play();
-      }
+      markers:true,
+      toggleActions: `restart none restart none`,
+      // onEnter:()=>{
+      //   if(showMenu)tl.play();
+      //   setShowMenu(false);
+      // },
+      // onEnterBack:()=>{
+      //   if(showMenu)tl.play();
+      //   setShowMenu(false);
+      // }
     }
   );
 
@@ -37,7 +38,7 @@ function Navbar({showMenu,setShowMenu}) {
   const animatedHide = (event)=>{
     gsap.to("#menuHead",0,{height:0,overflow:"hidden"});
     gsap.to(".navItems",{height:"auto"});
-    setShowMenu(true);
+    
   }
   
   return (
