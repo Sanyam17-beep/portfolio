@@ -32,8 +32,8 @@ justify-content:flex-end;
 }
 #minicircle {
   transition: all cubic-bezier(0.19, 1, 0.22, 1) 1s;
-  width: 30px;
-  height: 30px;
+  width: 15px !important;
+  height: 15px !important;
   position: absolute;
   z-index: 99999;
   border-radius: 50%;
