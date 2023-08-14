@@ -31,7 +31,10 @@ function App() {
     console.log("Zukabee");
     const locoScroll = new LocomotiveScroll({
       el: document.querySelector('#main'),
-      smooth: true
+      smooth: true,
+      smartphone:{
+        smooth:true
+      }
     });
 
     locoScroll.on( 'scroll', ( instance ) => {
@@ -198,7 +201,7 @@ function App() {
       <div id="minicircle"></div>
       <div id="main" data-scroll-container data-scroll-speed="2">
       <div id="hero">
-      <Navbar showMenu={showMenu} setShowMenu={setShowMenu} ScrollTrigger={ScrollTrigger}></Navbar>
+            <Navbar showMenu={showMenu} setShowMenu={setShowMenu} ScrollTrigger={ScrollTrigger}></Navbar>
             <HeroBanner></HeroBanner>
             <div id="chhotiheadings">
                 <div class="bounding">
