@@ -1,5 +1,9 @@
 export const quote=[
     {
+      text:"अयोध्या जैसी कोई जगह नहीं है",
+      author:"श्री राम"
+    },
+    {
       text: "Always code as if the guy who ends up maintaining your code will be a violent psychopath who knows where you live.",
       author: "Martin Golding"
     },

@@ -6,8 +6,9 @@ import { ScrollTrigger } from 'gsap/all';
 
 export const scrollAnimation = (showMenu,setShowMenu)=>{  
   let tl = gsap.timeline();
-  tl.to(".navItems",{height:0},0.2)
+    tl.to(".navItems",{height:0},0.2)
     .to("#menuHead",{height:"auto",overflow:"hidden"},0.2)
+  
   
   
   ScrollTrigger.create({
@@ -37,7 +38,7 @@ function Navbar({showMenu,setShowMenu}) {
   const animatedHide = (event)=>{
     gsap.to("#menuHead",0,{height:0,overflow:"hidden"});
     gsap.to(".navItems",{height:"auto"});
-    
+    setShowMenu(!showMenu)
   }
   
   return (
