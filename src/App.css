@@ -172,7 +172,7 @@ justify-content:flex-end;
   margin: auto;
   max-width: 100vw;
   position: absolute;
-  top: 65vh;
+  top: 43vh;
   z-index: 1;
 }
 .bounding {
@@ -197,7 +197,7 @@ justify-content:flex-end;
   position: relative;
   color: #fff;
   width:100%;
-  height: 100vh;
+  height: 77vh;
   background-color: black;
 }
 #minicircle {
@@ -245,12 +245,16 @@ justify-content:flex-end;
   font-size:1.0rem;
   font-weight:500;
 }
-
+.dabba{
+  background-color: aqua;
+  width: 100%;
+  height: 100vh;
+}
 @media only screen and (max-width: 600px) {
- /* #hero {
-  width: 112%;
-  height: 105vh;
-  } */
+ #hero {
+
+  height: 81vh;
+  }
   
   #main{
     overflow: hidden;
@@ -268,7 +272,7 @@ justify-content:flex-end;
   right: 0px;
 }
 .wrapper{
-  top: 58vh;
+  top: 40vh;
 }
 .moi{
  font-size:20px !important;

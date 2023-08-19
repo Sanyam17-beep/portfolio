@@ -1,12 +1,23 @@
 import React from 'react'
-
+import Transition from '../transition/Transition';
+import {useNavigate} from "react-router-dom";
 function Projects() {
+  
+  const navigate = useNavigate();
+
+  const navigateHandler = (path)=>{
+    console.log("ZOLO");
+    navigate(path);
+  }
   return (
-    <div class="elem elemlast">
-        <h1>Work</h1>
-        <h2>+</h2>
-        <div class="center14"></div>
+<>
+<Transition>
+    </Transition>
+    <div className='dabba'>
+    <span onClick={()=>navigateHandler('/skills')}>Skills</span>
     </div>
+
+    </>
   )
 }
 

@@ -48,8 +48,12 @@ function App() {
           },
           pinType: document.querySelector("#main").style.transform ? "transform" : "fixed"
         });
-        ScrollTrigger.addEventListener( 'refresh', () => locoScroll.update() );
-        ScrollTrigger.refresh();
+        try{ ScrollTrigger.addEventListener( 'refresh', () => locoScroll.update() );
+        ScrollTrigger.refresh();}
+        catch(e){
+
+        }
+       
         scrollAnimation(showMenu,setShowMenu);
       },
       "(max-width:1400px)":()=>{console.log("Johny");}
@@ -202,6 +206,8 @@ function App() {
     <>   
     {(
       <>
+       <Transition>
+    </Transition>
       <div className="App">
       <div id="side"> <IoChatbubbleEllipses id='ico' ></IoChatbubbleEllipses>
         <a href="https://drive.google.com/file/d/1TwE88G_fy0x3Q60NFUfIK9sgOSLrrmXA/view?usp=sharing" target="_blank"><div id="resume">Resume</div></a>
