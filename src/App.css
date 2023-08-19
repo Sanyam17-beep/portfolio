@@ -4,6 +4,12 @@
   font-size: larger;
   font-weight: 500;
 }
+.navItems{
+
+  @media screen and (max-width:1400px) {
+    display: none;
+  }
+}
 #ico{
   position: relative;
   top: -70px;
@@ -31,7 +37,7 @@ justify-content:flex-end;
   cursor: pointer;
 }
 
-@media screen and (min-width:2000px){
+@media screen and (min-width:1400px){
   #minicircle {
     transition: all cubic-bezier(0.19, 1, 0.22, 1) 1s;
     width: 15px !important;
@@ -43,7 +49,7 @@ justify-content:flex-end;
     background-color: #fff;
   }
 }
-@media screen and (max-width:2000px){
+@media screen and (max-width:1400px){
   #minicircle {
     display: none;
   }
@@ -144,7 +150,7 @@ justify-content:flex-end;
 }
 
 
-/* Element styles */
+/* Elet styles */
 .marquee svg {
   display: grid;
   place-items: center;
@@ -215,6 +221,7 @@ justify-content:flex-end;
   height: 100%;
   font-weight: bold;
   background-color: black;
+  text-transform: uppercase;
 }
 
 #nav div{
@@ -317,15 +324,15 @@ padding-top: 25vh !important;
 #Name{
   font-weight: 500;
 }
-
+#mobileName{
+  font-weight: 500;
+}
 .animatedClass{
   display: flex;
   flex-direction: column;
   align-items: end;
-  @media screen and (max-width:2000px) {
-    display: none;
+  
   }
-}
 
 #heading {
   margin-top: 70px;
@@ -519,17 +526,29 @@ padding-top: 25vh !important;
   align-items: center;
   justify-content: space-between;
   padding: 0px 30px;
+  @media screen and (max-width:1400px) {
+    display: block;
+    padding: 0.75rem 1.25rem 1.25rem;
+    text-transform: uppercase;
+  };
 }
 
 #footerleft {
   display: flex;
   gap: 5px;
+  @media screen and (max-width:1400px) {
+    justify-content: space-between;
+    padding: 0.75rem 1.25rem 1.25rem;
+  };
 }
 
 #footerright {
   display: flex;
   gap: 30px;
   padding:18px;
+  @media screen and (max-width:1400px) {
+    display: none;
+  };
 }
 
 #footer a {
@@ -538,4 +557,107 @@ padding-top: 25vh !important;
   font-weight: 500;
   color: #fff;
   text-decoration: none;
+}
+.sideContainer{
+ 
+  top: 10%;
+  background-color: rgb(163, 163, 163);
+  position: fixed;
+  z-index: 1000;
+  width: 100%;
+  top: 0%;
+  height: 0;
+  overflow: hidden;
+}
+
+.sideBar{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  background-color: rgb(163, 163, 163);
+  border: 0 solid #e5e7eb;
+}
+.mobileItems{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  font-size: 3rem;
+  text-transform: uppercase;
+  font-family: General Sans,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif;
+  text-transform: uppercase;
+  list-style: none;
+  font-weight: 500;
+}
+.coverMobileSkills{
+  /* --tw-border-opacity: 1;
+  border-bottom-width: 0.6px;
+  border-color: #d6d6d6;
+  border-color: rgb(214 214 214/var(--tw-border-opacity));
+  border-top-width: 0.6px; */
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+  padding-top: 105px;
+}
+
+.mobileSkills{
+  --tw-space-y-reverse: 0;
+    margin-bottom: calc(2.25rem*var(--tw-space-y-reverse));
+    margin-top: calc(2.25rem*(1 - var(--tw-space-y-reverse)));
+    line-height: 2.5rem;
+}
+/* .top{
+  border-bottom: solid white;
+  border-width: thin;
+} */
+
+#sidenav{
+    background-color: rgb(163, 163, 163);
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 1.5rem 2.78vw;
+    height: 100%;
+    font-weight: bold;
+  
+}
+#sidenav a{
+  color: black;
+  text-decoration: none;
+  font-size: 1.125rem;
+  line-height: 42px;
+}
+
+#mobilemenuHead{
+    font-weight: 500;
+    text-transform: uppercase;
+    font-family: General Sans,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif;
+}
+
+#mobileName{
+  height: 0px;
+  overflow: hidden;
+}
+
+#mobilemenuHead{
+  height: 0px;
+  overflow: hidden;
+}
+
+.mobileFooter{
+  height: 0;
+  overflow: hidden;
+}
+/* .mobilefooter{
+  border-top: solid white;
+  border-width: thin;
+} */
+
+#mobilefooterleft{
+  display: flex;
+  justify-content: space-between;
+  padding: 0.75rem 1.25rem 1.25rem;
+  text-transform: uppercase;
 }
