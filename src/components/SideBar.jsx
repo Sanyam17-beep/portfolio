@@ -1,9 +1,16 @@
 import React from 'react'
 import Footer from './Footer'
 import { gsap } from 'gsap'
-
+import Transition from '../transition/Transition';
+import {useNavigate} from "react-router-dom";
 
 function SideBar({dateState,id,backgroundColor,setBackgroundColor}) {
+  const navigate = useNavigate();
+
+  const navigateHandler = (path)=>{
+    console.log("ZOLO");
+    navigate(path);
+  }
     const slideUp = ()=>{
         let tl = gsap.timeline();
         tl.timeScale(2.5);
@@ -24,7 +31,7 @@ function SideBar({dateState,id,backgroundColor,setBackgroundColor}) {
         </div>
         <div className="coverMobileSkills">
         <ul className="mobileItems">
-            <li className="mobileSkills">Skills</li>
+            <li className="mobileSkills" onClick={()=>navigateHandler('/skills')}>Skills</li>
             <li className="mobileSkills">Experience</li>
             <li className="mobileSkills">Projects</li>
             <li className="mobileSkills">Contact</li>

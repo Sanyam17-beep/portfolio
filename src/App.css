@@ -252,8 +252,7 @@ justify-content:flex-end;
 }
 @media only screen and (max-width: 600px) {
  #hero {
-
-  height: 81vh;
+  height: 80vh;
   }
   
   #main{
@@ -272,7 +271,7 @@ justify-content:flex-end;
   right: 0px;
 }
 .wrapper{
-  top: 40vh;
+  top: 38vh;
 }
 .moi{
  font-size:20px !important;
@@ -307,6 +306,12 @@ padding-top: 25vh !important;
 .elem h2{
   font-size: 90px !important;
 }
+#nav{
+  padding: 0.6rem 1.3rem;
+}
+#footer{
+  padding-bottom: 0px !important;
+}
   }
 #nav a {
   text-decoration: none;
@@ -315,6 +320,7 @@ padding-top: 25vh !important;
   line-height: 42px;
   
 }
+
 .underline {
   display: block;
   position: relative;

@@ -246,7 +246,7 @@ function App() {
           <h2>+</h2>
           <div class="center14"></div>
         </div>
-        <div class="elem">
+        <div class="elem elemlast">
           <h1>SKILLS</h1>
           <h2>+</h2>
           <div class="center14"></div>
