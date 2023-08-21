@@ -14,8 +14,9 @@ function SideBar({dateState,id,backgroundColor,setBackgroundColor}) {
     const slideUp = ()=>{
         let tl = gsap.timeline();
         tl.timeScale(2.5);
-        tl.to(".mobileFooter",0.6,{height:0})
+        tl.to(".mobileFooter",0.8,{height:0})
           .to("#mobileName",{height:0,overflow:"hidden"},"<0.3")
+          .to(".mobileSkills",{height:0,overflow:"hidden"},"<0")
           .to("#mobilemenuHead",{height:0,overflow:"hidden"},"<0")
           .to(".sideContainer",2,{height:0,duration:2},"<0")
     }

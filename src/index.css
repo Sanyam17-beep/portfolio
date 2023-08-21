@@ -170,9 +170,15 @@ margin-left: 220px;
 padding-top: 3px;
 font-size: medium;
 }
+@media only screen and (max-width: 600px) {
+  #quote{
+    bottom: 230px !important;
+    padding: 10px;
+  }
+}
 #quote{
   position: absolute;
- bottom: 250px;
+ bottom: 260px;
  width: 100%;
 }
 #blc{

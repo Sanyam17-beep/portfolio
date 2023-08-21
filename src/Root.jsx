@@ -13,7 +13,7 @@ function Root() {
     const [loading,setLoading] = useState(true);
     const slideUp = ()=>{
         const tl = gsap.timeline();
-        tl.to(".pre",{height:0,overflow:"hidden",duration:2,smoothOrigin:true})
+        tl.to(".pre",{height:0,overflow:"hidden",duration:1,smoothOrigin:true})
           .call(setLoading,[false]);
     }
     useEffect(()=>{

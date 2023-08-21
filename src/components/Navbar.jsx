@@ -53,6 +53,7 @@ function Navbar({showMenu,setShowMenu,mobile,toggleMenu,setText,id}) {
         tl.timeScale(2.5);
         tl.to(".sideContainer",{height:"100%"})
           .to("#mobileName",{height:"auto",overflow:"none"},">0")
+          .to(".mobileSkills",{height:"auto",overflow:"none"},">0")
           .to("#mobilemenuHead",{height:"auto",overflow:"none"},">0")
           .to(".mobileFooter",{height:"auto"},">0")
       }

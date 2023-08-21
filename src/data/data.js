@@ -1,4 +1,8 @@
 export const quote=[
+  {
+    text: "Programming today is a race between software engineers striving to build bigger and better idiot-proof programs, and the universe trying to produce bigger and better idiots. So far, the universe is winning.",
+    author: "Rich Cook"
+  },
     {
       text:"अयोध्या जैसी कोई जगह नहीं है",
       author:"श्री राम"
@@ -402,10 +406,6 @@ export const quote=[
     {
       text: "Programming languages, like pizzas, come in only two sizes: too big and too small.",
       author: "Richard Pattis"
-    },
-    {
-      text: "Programming today is a race between software engineers striving to build bigger and better idiot-proof programs, and the universe trying to produce bigger and better idiots. So far, the universe is winning.",
-      author: "Rich Cook"
     },
     {
       text: "Plan to throw one (implementation) away; you will, anyhow.",
