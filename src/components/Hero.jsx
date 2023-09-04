@@ -7,7 +7,15 @@ import loh from '../loh.jpeg';
 import HeroBanner from './HeroBanner';
 import Clients from './Clients';
 import About from './About';
+import {useNavigate} from "react-router-dom";
 function Hero() {
+  
+  const navigate = useNavigate();
+
+  const navigateHandler = (path)=>{
+    navigate(path);
+    
+  }
   useEffect(() => {
     // if(loading)return
     function firstPageAnim() {
@@ -112,8 +120,8 @@ function Hero() {
         </div>
         <Clients></Clients>
         <div id="herofooter">
-          <a href="#" className='js-work-link op'>Working with MERN <FiArrowUpRight className='arr'></FiArrowUpRight><span className='underline'></span></a>
-          <a href="#" className='js-work-link op'>Developing Projects<FiArrowUpRight className='arr'></FiArrowUpRight><span className='underline'></span></a>
+          <a href="#" className='js-work-link op' onClick={()=>navigateHandler('/skills')}>Working on Web <FiArrowUpRight className='arr'></FiArrowUpRight><span className='underline'></span></a>
+          <a href="#" className='js-work-link op' onClick={()=>navigateHandler('/projects')}>Developing Projects<FiArrowUpRight className='arr'></FiArrowUpRight><span className='underline'></span></a>
           <div id="iconset">
             <div class="circle"> <IoArrowDownSharp></IoArrowDownSharp> </div>
             <div class="circle"> <IoArrowDownSharp></IoArrowDownSharp> </div>
@@ -129,12 +137,12 @@ function Hero() {
 
 
         <div class="elem">
-          <h1>SKILLS</h1>
+          <h1>EXPERIENCE</h1>
           <h2>+</h2>
           <div class="center14"></div>
         </div>
         <div class="elem elemlast">
-          <h1>SKILLS</h1>
+          <h1>WORK</h1>
           <h2>+</h2>
           <div class="center14"></div>
         </div>

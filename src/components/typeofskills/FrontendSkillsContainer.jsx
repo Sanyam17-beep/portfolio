@@ -46,8 +46,8 @@ function FrontendSkillsContainer() {
 
                         <div className="content-header-skill">
 
-                            <h3 className='text-animate build-in-slideX-left' style={{ transitionDelay: "0ms" }}>Keep flying with your favorite editor</h3>
-                            <p className='text-animate build-in-slideX-left' style={{ transitionDelay: "100ms" }}>GitHub Copilot integrates directly into your editor including Neovim, JetBrains IDEs, Visual Studio, and Visual Studio Code—and is fast enough to use as you type.</p>
+                            <h3 className='text-animate build-in-slideX-left' style={{ transitionDelay: "0ms" }}>Frontend: Crafting intuitive web experiences</h3>
+                            <p className='text-animate build-in-slideX-left' style={{ transitionDelay: "100ms" }}>Front-end skills encompass a broad range of technologies like React, HTML, CSS, JavaScript, Vue, and a constant journey of learning and staying updated with the ever-evolving web landscape.</p>
 
                         </div>
 
@@ -70,7 +70,7 @@ function FrontendSkillsContainer() {
                                         <polygon fill="#81c784" points="23.987,17 18.734,8 2.974,8 23.987,44 45,8 29.24,8"></polygon><polygon fill="#455a64" points="29.24,8 23.987,17 18.734,8 11.146,8 23.987,30 36.828,8"></polygon>
                                     </svg>
                                     <div className="skill-name">
-                                        React
+                                        Vue
                                     </div>
                                 </div>
 

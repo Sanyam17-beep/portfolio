@@ -29,10 +29,11 @@ function Root() {
       }
     }
   }, [])
+  
   useEffect(() => {
     setTimeout(() => {
       slideUp();
-    }, 12000);
+    }, 120);
   }, [])
   return (
     <>

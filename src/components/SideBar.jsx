@@ -26,15 +26,15 @@ function SideBar({dateState,id,backgroundColor,setBackgroundColor}) {
         <div className="top">
             
         <div id={id}>
-        <div id="mobileName"><a href="#">Sanyam</a></div>
+        <div id="mobileName"><a href="#" onClick={()=>{navigateHandler('/');slideUp()}}>Sanyam</a></div>
         <h4 id="mobilemenuHead" className="js-work-link" onClick={slideUp}>Close<span className='underline'></span></h4>
         </div>
         </div>
         <div className="coverMobileSkills">
         <ul className="mobileItems">
             <li className="mobileSkills" onClick={()=>{navigateHandler('/skills');slideUp()}}>Skills</li>
-            <li className="mobileSkills">Experience</li>
-            <li className="mobileSkills">Projects</li>
+            <li className="mobileSkills" onClick={()=>{navigateHandler('/experience');slideUp()}}>Experience</li>
+            <li className="mobileSkills">WORK</li>
             <li className="mobileSkills">Contact</li>
         </ul>
         </div>

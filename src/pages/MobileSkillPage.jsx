@@ -12,7 +12,7 @@ import { ScrollTrigger } from 'gsap/all';
 import FrontendSkillsContainer from '../components/typeofskills/FrontendSkillsContainer';
 import BackendSkillsContainer from '../components/typeofskills/BackendSkillsContainer';
 import ProSkillsContainer from '../components/typeofskills/ProSkillsContainer';
-
+import video from "../components/kpo.mp4";
 import "../components/styles/skill.css"
 // gsap.registerPlugin(ScrollTrigger);
 // let tl = gsap.timeline();
@@ -173,6 +173,66 @@ function MobileSkillPage() {
     };
   }, []);
   useEffect(() => {
+    function enterAnimation(link, e, index) {
+      link.tl.tweenFromTo(0, "midway");
+    }
+
+    // Mouseleave function
+    function leaveAnimation(link, e) {
+      link.tl.play();
+    }
+
+
+    // Get all links
+    let workLinks = document.querySelectorAll(".js-work-link");
+
+    workLinks.forEach((link, index, value) => {
+      let underline = link.querySelector(".underline");
+      link.tl = gsap.timeline({ paused: true });
+
+      link.tl.fromTo(underline, {
+        width: "0%",
+        left: "0%",
+      }, {
+        width: "100%",
+        duration: 0.2,
+      });
+
+      link.tl.add("midway");
+
+      link.tl.fromTo(underline, {
+        width: "100%",
+        left: "0%",
+      }, {
+        width: "0%",
+        left: "100%",
+        duration: 0.2,
+        immediateRender: false
+      });
+
+      // Mouseenter
+      console.log(link.tl);
+      link.addEventListener("mouseenter", (e) => {
+        enterAnimation(link, e, index);
+      });
+
+      // Mouseleave
+      link.addEventListener("mouseleave", (e) => {
+        leaveAnimation(link, e);
+      });
+      return () => {
+        link.removeEventListener("mouseenter", (e) => {
+          enterAnimation(link, e, index);
+        });
+
+        // Mouseleave
+        link.removeEventListener("mouseleave", (e) => {
+          leaveAnimation(link, e);
+        });
+      }
+    });
+  }, []);
+  useEffect(() => {
     if (showMenu == null || showMenu == false) return;
     attachScrollEvent(loco);
 
@@ -192,12 +252,15 @@ function MobileSkillPage() {
 
 
           <div className="cont" data-scroll data-scroll-sticky data-scroll-target="#main">
-            <div className="work">SKILLS
+            <div className="work mobn">SKILLS
             </div>
           </div>
 
           <div className="xl-container">
             <div className="nidhi">
+            <div className="three_3d">
+                <video src={video} autoPlay loop muted height={"300px"} width={"450px"}></video>
+              </div>
               <div className="lineSVG">
                 <svg width="348" height="2700" viewBox="0 0 348 1850" fill="none">
                   <path xmlns="http://www.w3.org/2000/svg" d="M 346.497 1549 L 346.5 1457.5 C 346.5 1448.66 339.336 1441.5 330.5 1441.5 L 17 1441.5 C 8.164 1441.5 1 1434.34 1 1425.5 L -2.286 -1101.351" stroke="url(#paint0_linear_207_14200)" stroke-width="4" stroke-linecap="round" />
@@ -400,7 +463,14 @@ function MobileSkillPage() {
                   </div>
                 </div>
               </div>
-
+              <div className="next-work">
+                <span id="nword">Next</span>
+                <div className="elem" onClick={()=>{navigateHandler('/experience');}}>
+                  <h1>Experience</h1>
+                  <h2>+</h2>
+                  <div className="center14"></div>
+                </div>
+              </div>
             </div>
 
           </div>
