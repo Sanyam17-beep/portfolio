@@ -1,7 +1,7 @@
 import './App.css';
 import React, { useEffect, useState, useRef } from "react";
 import Hero from './components/Hero';
-import gsap from "gsap";
+import { gsap, Power3 } from "gsap";
 import { IoChatbubbleEllipses } from "react-icons/io5";
 import LocomotiveScroll from 'locomotive-scroll';
 import Navbar, { scrollAnimation } from './components/Navbar';
@@ -9,8 +9,8 @@ import Footer from './components/Footer';
 import Transition from './transition/Transition';
 // gsap.registerPlugin(ScrollTrigger);
 
-function App({ mobileMenu, setMobileMenu,dateState,setDateState}) {
-  
+function App({ mobileMenu, setMobileMenu, dateState, setDateState }) {
+
   const [showMenu, setShowMenu] = useState(null);
   const [loco, setLoco] = useState(null);
 
@@ -34,6 +34,7 @@ function App({ mobileMenu, setMobileMenu,dateState,setDateState}) {
     });
 
     setLoco(locoScroll);
+
 
     // ScrollTrigger.matchMedia({
     //   "(min-width:1400px)":function (){
@@ -78,6 +79,10 @@ function App({ mobileMenu, setMobileMenu,dateState,setDateState}) {
 
   useEffect(() => {
     if (mobileMenu) return
+
+
+
+
     let xscale = 1;
     let yscale = 1;
     let xprev = 0;
@@ -141,8 +146,9 @@ function App({ mobileMenu, setMobileMenu,dateState,setDateState}) {
               <Hero></Hero>
               <Footer dateState={dateState}></Footer>
             </div>
-            
           </div>
+
+
 
         </>
       )}

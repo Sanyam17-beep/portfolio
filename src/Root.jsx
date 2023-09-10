@@ -9,6 +9,7 @@ import Experience from "./pages/Experience";
 import Projects from "./pages/Projects";
 import MobileSkillPage from './pages/MobileSkillPage';
 import SideBar from './components/SideBar';
+import Connect from './components/Connect';
 
 function Root() {
   const location = useLocation();
@@ -51,6 +52,7 @@ function Root() {
       {mobileMenu && (
         <SideBar dateState={dateState} id="sidenav"></SideBar>
       )}
+      {!loading && <Connect></Connect>}
     </>
   )
 }

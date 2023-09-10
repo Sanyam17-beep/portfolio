@@ -45,10 +45,20 @@ export const scrollAnimation = (showMenu,setShowMenu)=>{
 function Navbar({showMenu,setShowMenu,mobile,toggleMenu,setText,id}) {
 
   const navigate = useNavigate();
+  const connectRef = useRef();
 
   const navigateHandler = (path)=>{
     navigate(path);
     
+  }
+
+  const showConnectBox = () => {
+
+    const ele = document.getElementsByClassName("connect-card")[0];
+
+    console.log(ele);
+    ele.classList.add("connect-box-animation");
+  
   }
   
   const animatedHide = (event)=>{
@@ -85,7 +95,7 @@ function Navbar({showMenu,setShowMenu,mobile,toggleMenu,setText,id}) {
               <li className="my_items js-work-link"><span onClick={()=>navigateHandler('/skills')}>Skills</span><span className='underline'></span></li>
               <li className="my_items js-work-link" onClick={()=>navigateHandler('/experience')}>Experience<span className='underline'></span></li>
               <li className="my_items js-work-link" onClick={()=>navigateHandler('/projects')}>Projects<span className='underline'></span></li>
-              <li className="my_items js-work-link" onClick={()=>navigateHandler('/contact')}>Contact<span className='underline'></span></li>
+              <li ref = {connectRef} className="my_items js-work-link" onClick={()=>showConnectBox()}>Contact<span className='underline'></span></li>
             </ul>
           </div>
         }
