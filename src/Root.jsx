@@ -8,6 +8,7 @@ import Skills from "./pages/Skills";
 import Experience from "./pages/Experience";
 import Projects from "./pages/Projects";
 import MobileSkillPage from './pages/MobileSkillPage';
+import MobileConnect from './pages/MobileConnect';
 import SideBar from './components/SideBar';
 import Connect from './components/Connect';
 
@@ -46,13 +47,16 @@ function Root() {
             <Route path='/skills' element={mobileMenu == false ? (<Skills></Skills>) : (<MobileSkillPage></MobileSkillPage>)}></Route>
             <Route path='/experience' element={<Experience></Experience>}></Route>
             <Route path='/projects' element={<Projects></Projects>}></Route>
+            {mobileMenu && (
+      <Route path='/connect' element={<MobileConnect></MobileConnect>}></Route>
+      )}  
           </Routes>
         </AnimatePresence>
       )}
       {mobileMenu && (
         <SideBar dateState={dateState} id="sidenav"></SideBar>
       )}
-      {!loading && <Connect></Connect>}
+      {!loading && !mobileMenu && <Connect></Connect>}
     </>
   )
 }

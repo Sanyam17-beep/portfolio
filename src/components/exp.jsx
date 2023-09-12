@@ -168,7 +168,10 @@ function Exper() {
 </main>
           </div>
           <Menu></Menu>
-          <div className="next-work">
+         
+         
+        </div>
+        <div className="next-work">
                 <span id="nword">Next</span>
                 <div className="elem" onClick={()=>{navigateHandler('/projects');}}>
                   <h1>WORK</h1>
@@ -176,8 +179,6 @@ function Exper() {
                   <div className="center14"></div>
                 </div>
               </div>
-         
-        </div>
       </div>
       </>
   )

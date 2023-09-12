@@ -1,9 +1,11 @@
-import React, { useEffect } from 'react';
+import React, { useEffect,useState } from 'react';
 import "./connect.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faYoutube, faGithub, faXTwitter, faLinkedinIn } from "@fortawesome/free-brands-svg-icons"
 import { gsap } from "gsap";
 function Connect() {
+  const [email,setemail]=useState("");
+  const [message,setmessage]=useState("");
   const turnOffConnect = () => {
     const connectBoxClose = document.getElementsByClassName("connect-card")[0];
     connectBoxClose.classList.add("connect-box-pop-up-skill");
@@ -12,9 +14,6 @@ function Connect() {
       connectBoxClose.classList.remove("connect-box-pop-up-skill");
       connectBoxClose.classList.remove("connect-box-animation");
     },400)
-    
-
-
   }
   useEffect(() => {
     document.querySelectorAll('.button').forEach(button => {
@@ -132,32 +131,37 @@ function Connect() {
   }, [])
   return (
     <div className="connect-card">
-      <div className="close-connect" onClick={() => turnOffConnect()}>
-        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="25" height="25" viewBox="0 0 50 50">
-          <path d="M 7.71875 6.28125 L 6.28125 7.71875 L 23.5625 25 L 6.28125 42.28125 L 7.71875 43.71875 L 25 26.4375 L 42.28125 43.71875 L 43.71875 42.28125 L 26.4375 25 L 43.71875 7.71875 L 42.28125 6.28125 L 25 23.5625 Z"></path>
+      <div className="close-connect" onClick={() => turnOffConnect()} style={{color:'white'}}>
+        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="25" height="25" viewBox="0 0 50 50" >
+          <path stroke='white' d="M 7.71875 6.28125 L 6.28125 7.71875 L 23.5625 25 L 6.28125 42.28125 L 7.71875 43.71875 L 25 26.4375 L 42.28125 43.71875 L 43.71875 42.28125 L 26.4375 25 L 43.71875 7.71875 L 42.28125 6.28125 L 25 23.5625 Z"></path>
         </svg>
       </div>
       <div className="connect-options">
         <div className="connect-option-list">
-          <FontAwesomeIcon icon={faYoutube} size='3x' />
+          <FontAwesomeIcon icon={faYoutube} size='2x' style={{color:'white',opacity:"0.7"}}/>
         </div>
         <div className="connect-option-list">
-          <FontAwesomeIcon icon={faGithub} size='3x' />
+          <FontAwesomeIcon icon={faGithub} size='2x'  style={{color:'white',opacity:"0.7"}}/>
         </div>
         <div className="connect-option-list">
-          <FontAwesomeIcon icon={faXTwitter} size='3x' />
+          <FontAwesomeIcon icon={faXTwitter} size='2x' style={{color:'white',opacity:"0.7"}} />
         </div>
         <div className="connect-option-list">
-          <FontAwesomeIcon icon={faLinkedinIn} size='3x' />
+          <FontAwesomeIcon icon={faLinkedinIn} size='2x'  style={{color:'white',opacity:"0.7"}} />
         </div>
       </div>
 
       <div className="write-message">
 
         <div className="input-custom-message-area">
-          <input type="text" name="" id="" className='text-area-message' value={"Write your email"} style={{ marginTop: "5px", marginBottom: "5px" }} />
-          <textarea rows={10} cols={150} wrap='soft'
-            className='text-area-message' value={"Write your own message"}>
+          <input type="text" name="" id="" className='text-area-message' value={email} onChange={(e)=>{
+            setemail(e.target.value);
+          }} placeholder={"Email"} style={{ marginTop: "5px", marginBottom: "5px" }} />
+          <textarea rows={10} cols={150} wrap='soft' value={message} onChange={(e)=>{
+            setmessage(e.target.value)
+          }}
+          style={{resize:"none"}}
+            className='text-area-message' placeholder={"Message"}>
           </textarea>
         </div>
 

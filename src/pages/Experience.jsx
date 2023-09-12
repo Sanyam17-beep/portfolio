@@ -203,9 +203,6 @@ function Experience() {
         <div id="minicircle"></div>
         <div id="main" data-scroll-container data-scroll-speed="2">
           <Navbar showMenu={showMenu} setShowMenu={setShowMenu} mobile={mobileMenu} toggleMenu={setMobileMenu} id="nav"></Navbar>
-
-
-
           <div className="cont" data-scroll data-scroll-sticky data-scroll-target="#main">
             <div className="work mobn loki">EXP
             </div>

@@ -92,10 +92,10 @@ function Navbar({showMenu,setShowMenu,mobile,toggleMenu,setText,id}) {
         <div className="animatedClass">
         {<div className='navItems' style={{height:0,overflow:"hidden"}}>
             <ul className='skill_list'>
-              <li className="my_items js-work-link"><span onClick={()=>navigateHandler('/skills')}>Skills</span><span className='underline'></span></li>
+              <li className="my_items js-work-link"  onClick={()=>navigateHandler('/skills')}>Skills<span className='underline'></span></li>
               <li className="my_items js-work-link" onClick={()=>navigateHandler('/experience')}>Experience<span className='underline'></span></li>
-              <li className="my_items js-work-link" onClick={()=>navigateHandler('/projects')}>Projects<span className='underline'></span></li>
-              <li ref = {connectRef} className="my_items js-work-link" onClick={()=>showConnectBox()}>Contact<span className='underline'></span></li>
+              <li className="my_items js-work-link" onClick={()=>navigateHandler('/projects')}>Work<span className='underline'></span></li>
+              <li ref = {connectRef} className="my_items js-work-link" onClick={()=>showConnectBox()}>Connect<span className='underline'></span></li>
             </ul>
           </div>
         }

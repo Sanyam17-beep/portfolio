@@ -5,7 +5,12 @@
         margin: auto 100px auto 397px;
     }
 }
-
+.lol{
+    font-size: 14px;
+}
+.yol{
+    font-size: 13px;
+}
 @media  screen and (max-width:1400px) {
     .images-icon{
         display: none;

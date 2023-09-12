@@ -1,103 +1,25 @@
-@import url('https://fonts.googleapis.com/css?family=Rubik');
-.connect-content {
-    background-color: green;
-    width: 80%;
-    height: 80%;
-    position: fixed;
-
-}
-.connect-card {
-    /* backdrop-filter: blur(3px) saturate(180%);
-    -webkit-backdrop-filter: blur(3px) saturate(180%);
-    background-color: rgba(255, 255, 255, 0.62);
-    border-radius: 12px;
-    border: 1px solid rgba(209, 213, 219, 0.3);
-    position: absolute;
-    top: 18%;
-    left: 35%;
-    height: 500px;
-    width: 500px;
-    opacity: 0;
-    transition: all 0.3s ease;
-    transform: translate(-50%, -50%) scale(1.2); */
-    opacity: 0;
-}
-.connect-options{
-    display: flex;
-    justify-content: space-around;
-    padding: 20px;
-}
-.connect-option-list{
-    
-}
-.text-area-message::-webkit-scrollbar{
-    background-color: #03030300;
-width: 5px;
-}
-.text-area-message::-webkit-scrollbar-thumb{
-    background-color: #5b5555;
-    border-radius: 2rem;
-}
-.text-area-message{
-    background-color: #00000078;
-    color: white;
-    border: 1px solid rgba(209, 213, 219, 0.3);
-    border-radius: 5px;
+.connect-container{
+    background-color: rgb(0, 0, 0);
+    position: sticky;
+      margin-top: 15vh;
+    height:100vh;
     width: 100%;
-    height: 100%;
-    padding: 10px;
-}
-.text-area-message:hover{
-    cursor:default;
-}
-.text-area-message::placeholder{
-    color: white;
-}
-.labelforarea{
 
-    padding: 10px;
-    font-size: 1.125rem;
-    /* color: #fff; */
-    line-height: 42px;
-    font-family: 'General Sans';
-    font-weight: bold;
-
+    overflow-x: hidden;
+    color: black;
+    display: flex;
+    flex-direction: column;
 }
-.input-custom-message-area{
-    margin-left: auto;
-    width: 90%;
-    margin-right: auto;
-    height: max-content;
+.kkkkop{
+    font-size: 65px !important;
+}
+.hibye{
+    margin-left: -35px;
+    mix-blend-mode:exclusion;
 }
 
 
-.connect-card.connect-box-animation{
-    backdrop-filter: blur(10px) saturate(180%);
-    -webkit-backdrop-filter: blur(10px) saturate(180%);
-    background-color: rgb(32 31 31 / 62%);
-    border-radius: 12px;
-    border: 1px solid rgba(209, 213, 219, 0.3);
-    position: absolute;
-    top: 17%;
-    left:38%;
-    height:fit-content;
-    width: 350px;
-    transition: all 0.3s ease;
-    transform: translate(0%, 0%) scale(1.2);
-    opacity: 1;
-}
-@keyframes textShine {
-    0% {
-        background-position: 0% 50%;
-    }
-    100% {
-        background-position: 100% 50%;
-    }
-}
 
-.close-connect{
-    padding: 10px;
-}
 
 .button-subscribe-connect{
     display: block;
@@ -106,10 +28,10 @@ width: 5px;
 }
 
 .button {
-    --primary: #000000db;;
-    --primary-dark: #1b1c1e;
+    --primary: #706b6b;
+    --primary-dark: #111112;
     --primary-darkest: #141517;
-    --text: #FFFFFF;
+    --text: #ffffff;
     --text-opacity: 1;
     --success: #f2f2f2;
     --success-scale: .2;
@@ -257,7 +179,7 @@ width: 5px;
     justify-content: center;
 }
 .separation-line{
-    border: 1px solid #141517;
+    border: 1px solid #ffffff;
     width: 80%;
     opacity: 0.4;
     margin-left: auto;
@@ -272,7 +194,7 @@ width: 5px;
     border-radius: 5px 0 0 5px;
     width: 60%;
     margin: 10px 0 10px 0;
-    background-color: #0000007b;
+    background-color: #ffffff29;
     color: white;
   }
   .subscribe-input-email::placeholder{
@@ -285,7 +207,7 @@ width: 5px;
 .subscribe-button-kafka {
     border: 0;
     border-radius: 0 5px 5px 0;
-    color: white;
+    color: black;
     text-transform: uppercase;
     padding: 10px;
     padding-left: 5px;
@@ -293,7 +215,7 @@ width: 5px;
     font-family: Rubik !important;
     position: relative;
     right: 5px;
-    background-color: #000000;
+    background-color: #fffffff0;
     height: 100%;
     width: 25%;
     font-weight:700;
@@ -303,17 +225,3 @@ width: 5px;
   }
 
 
-.connect-card.connect-box-animation.connect-box-pop-up-skill{
-    
-    animation: pop-up-box 0.4s linear;
-}
-
-@keyframes pop-up-box {
-    from{
-        transform: scale(1.2);
-    }
-    to{
-        transform: scale(0.1);
-        opacity: 0;
-    }
-}

@@ -35,7 +35,7 @@ function SideBar({dateState,id,backgroundColor,setBackgroundColor}) {
             <li className="mobileSkills" onClick={()=>{navigateHandler('/skills');slideUp()}}>Skills</li>
             <li className="mobileSkills" onClick={()=>{navigateHandler('/experience');slideUp()}}>Experience</li>
             <li className="mobileSkills">WORK</li>
-            <li className="mobileSkills">Contact</li>
+            <li className="mobileSkills" onClick={()=>{navigateHandler('/connect');slideUp()}}>Connect</li>
         </ul>
         </div>
         <div className="mobilefooter">
