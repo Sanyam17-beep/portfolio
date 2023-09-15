@@ -1,4 +1,4 @@
-import React, { useEffect, useState,useRef } from 'react'
+import React, { useEffect, useState, useRef, Suspense, lazy } from 'react'
 import Transition from '../transition/Transition';
 import { useNavigate } from "react-router-dom";
 import Navbar from '../components/Navbar';
@@ -8,16 +8,18 @@ import Footer from "../components/Footer";
 import SideBar from '../components/Footer';
 import { scrollAnimation } from '../components/Navbar';
 import { gsap } from 'gsap';
-import hibye from '../components/hibye.mp4'
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faYoutube, faGithub, faXTwitter, faLinkedinIn } from "@fortawesome/free-brands-svg-icons"
 import { ScrollTrigger } from 'gsap/all';
 import FrontendSkillsContainer from '../components/typeofskills/FrontendSkillsContainer';
 import BackendSkillsContainer from '../components/typeofskills/BackendSkillsContainer';
 import ProSkillsContainer from '../components/typeofskills/ProSkillsContainer';
-import video from "../components/kpo.mp4";
+
 import "../components/styles/KOPL.css"
 import emailjs from "@emailjs/browser";
+import LazySpinnerLoader from '../LazyComponents/LazySpinnerLoader';
+const V2 = lazy(()=>import("../components/Video2"));
 // gsap.registerPlugin(ScrollTrigger);
 // let tl = gsap.timeline();
 // tl.to(".content-header-skill",{
@@ -49,27 +51,27 @@ function MobileConnect() {
   const [mobileMenu, setMobileMenu] = useState(false);
   const [loco, setLoco] = useState(null);
   const emailBtn = useRef();
-  const [onSuccess,setOnSuccess] = useState("");
-  const getMailId = async()=>{
+  const [onSuccess, setOnSuccess] = useState("");
+  const getMailId = async () => {
 
-    await fetch("http://localhost:8000/sendemail",{
-      method:"POST",
-      headers:{
-        "Content-Type":"application/json"
+    await fetch("http://localhost:8000/sendemail", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
       },
-      body:JSON.stringify({email,message})
-    }).then(res=>{
-      if(res.status === 201){
+      body: JSON.stringify({ email, message })
+    }).then(res => {
+      if (res.status === 201) {
         setOnSuccess("Sent");
-      }else{
+      } else {
         setOnSuccess("Failed!")
       }
     })
-    .catch(err=>{
-      setOnSuccess("Failed!")
-    });
+      .catch(err => {
+        setOnSuccess("Failed!")
+      });
 
-    
+
   }
 
   const sendEmail = (event) => {
@@ -375,7 +377,9 @@ function MobileConnect() {
             </div>
           </div>
           <div className="connect-container">
-            <video src={hibye} autoPlay loop muted height={"300px"} width={"450px"} className='hibye'></video>
+            <Suspense fallback={<LazySpinnerLoader></LazySpinnerLoader>}>
+              <V2></V2>
+            </Suspense>
             <div className="connect-options">
               <div className="connect-option-list">
                 <FontAwesomeIcon icon={faYoutube} size='2x' style={{ color: 'white', opacity: "0.7" }} />
@@ -406,7 +410,7 @@ function MobileConnect() {
               </div>
 
               <div className="send-message-button-wrapper">
-                <button class="button" onClick={()=>getMailId()}>
+                <button class="button" onClick={() => getMailId()}>
                   <span class="default">Send</span>
                   <span class="success">{onSuccess}</span>
                   <div class="left"></div>
@@ -419,7 +423,7 @@ function MobileConnect() {
             <div className="separation-line"></div>
             <div className="subscribe-content">
               <div className="button-subscribe-connect">
-                <form ref={emailBtn} onSubmit={(event)=>sendEmail(event)}>
+                <form ref={emailBtn} onSubmit={(event) => sendEmail(event)}>
                   <input className="subscribe-input-email" type="email" placeholder="subscribe@here.com" required />
                   <button className="subscribe-button-kafka subscribe-content-text" type="submit">Subscribe</button>
                 </form>
