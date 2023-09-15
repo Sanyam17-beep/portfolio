@@ -10,7 +10,7 @@ initial={{scaleY:0}}
 animate={{scaleY:0}}
 exit={{scaleY:1}}
 transition={{duration:1.1,ease:[0.22,1,0.36,1]}}
-> <span className="tex">Sanyam</span></motion.div>
+> <span className="tex">I&S</span></motion.div>
  
 <motion.div
 className="slide-out"

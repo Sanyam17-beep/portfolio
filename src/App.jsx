@@ -7,13 +7,16 @@ import LocomotiveScroll from 'locomotive-scroll';
 import Navbar, { scrollAnimation } from './components/Navbar';
 import Footer from './components/Footer';
 import Transition from './transition/Transition';
+import { useNavigate } from 'react-router-dom';
+import IshanResume from "./Ishan.pdf";
 // gsap.registerPlugin(ScrollTrigger);
+
 
 function App({ mobileMenu, setMobileMenu, dateState, setDateState }) {
 
   const [showMenu, setShowMenu] = useState(null);
   const [loco, setLoco] = useState(null);
-
+  const navigate = useNavigate();
   const attachScrollEvent = (locoScroll) => {
     locoScroll.on("scroll", () => {
       let tl = scrollAnimation(showMenu, setShowMenu);
@@ -128,6 +131,33 @@ function App({ mobileMenu, setMobileMenu, dateState, setDateState }) {
       }
     }
   }, [window.innerWidth])
+
+  const showResumeAnimation = (event) => {
+
+    event.stopPropagation()
+    const r1 = document.getElementsByClassName("side-lancer-1")[0];
+    const r2 = document.getElementsByClassName("side-lancer-2")[0];
+    if (r1.classList.contains("showit")) {
+      r1.classList.remove("showit");
+      r2.classList.remove("showit");
+    } else {
+      r1.classList.add("showit");
+      r2.classList.add("showit");
+    }
+
+
+  }
+  const showConnectBox = () => {
+    if(window.innerWidth <= 600){
+      navigate('/connect');
+      return
+    }
+    const ele = document.getElementsByClassName("connect-card")[0];
+
+    console.log(ele);
+    ele.classList.add("connect-box-animation");
+  
+  }
   return (
     <>
       {(
@@ -137,8 +167,14 @@ function App({ mobileMenu, setMobileMenu, dateState, setDateState }) {
           </Transition>
 
           <div className="App">
-            <div id="side"> <IoChatbubbleEllipses id='ico' ></IoChatbubbleEllipses>
-              <a href="https://drive.google.com/file/d/1TwE88G_fy0x3Q60NFUfIK9sgOSLrrmXA/view?usp=sharing" target="_blank"><div id="resume">Resume</div></a>
+            <div id="side" onClick={()=>showConnectBox()}> <IoChatbubbleEllipses id='ico' ></IoChatbubbleEllipses>
+              <div className="side-lancer-1" onClick={(event)=>event.stopPropagation()}>
+                <a href={IshanResume} target="_blank">Ishan</a>
+              </div>
+              <div className="side-lancer-2" onClick={(event)=>event.stopPropagation()}>
+                <a href="https://drive.google.com/file/d/1TwE88G_fy0x3Q60NFUfIK9sgOSLrrmXA/view?usp=sharing" target="_blank">Sanyam</a>
+              </div>
+              <div id="resume" onClick={(event) => showResumeAnimation(event)}>Resume</div>
             </div>
             <div id="minicircle"></div>
             <div id="main" data-scroll-container data-scroll-speed="2">

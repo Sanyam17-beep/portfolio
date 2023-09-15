@@ -11,7 +11,7 @@ function BackendSkillsContainer() {
 
             <div className="svg-wrapper">
                 <div className="skills-container">
-                    <div className="images-icon">
+                    <div className="images-icon single-child-backend">
                         <div className="icons-image back-one" id='one'>
                             <svg width="24px" height="24px" viewBox="0 -0.25 79.5 79.5" xmlns="http://www.w3.org/2000/svg">
                                 <g id="Coding" transform="translate(-80.251 -390.392)">

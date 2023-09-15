@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState,useRef } from 'react'
 import Transition from '../transition/Transition';
 import { useNavigate } from "react-router-dom";
 import Navbar from '../components/Navbar';
@@ -17,6 +17,7 @@ import BackendSkillsContainer from '../components/typeofskills/BackendSkillsCont
 import ProSkillsContainer from '../components/typeofskills/ProSkillsContainer';
 import video from "../components/kpo.mp4";
 import "../components/styles/KOPL.css"
+import emailjs from "@emailjs/browser";
 // gsap.registerPlugin(ScrollTrigger);
 // let tl = gsap.timeline();
 // tl.to(".content-header-skill",{
@@ -37,8 +38,8 @@ import "../components/styles/KOPL.css"
 // }
 function MobileConnect() {
   const navigate = useNavigate();
- const [email,setemail]=useState("");
-  const [message,setmessage]=useState("");
+  const [email, setemail] = useState("");
+  const [message, setmessage] = useState("");
   const navigateHandler = (path) => {
     navigate(path);
   }
@@ -47,6 +48,48 @@ function MobileConnect() {
   const [showMenu, setShowMenu] = useState(null);
   const [mobileMenu, setMobileMenu] = useState(false);
   const [loco, setLoco] = useState(null);
+  const emailBtn = useRef();
+  const [onSuccess,setOnSuccess] = useState("");
+  const getMailId = async()=>{
+
+    await fetch("http://localhost:8000/sendemail",{
+      method:"POST",
+      headers:{
+        "Content-Type":"application/json"
+      },
+      body:JSON.stringify({email,message})
+    }).then(res=>{
+      if(res.status === 201){
+        setOnSuccess("Sent");
+      }else{
+        setOnSuccess("Failed!")
+      }
+    })
+    .catch(err=>{
+      setOnSuccess("Failed!")
+    });
+
+    
+  }
+
+  const sendEmail = (event) => {
+
+    event.preventDefault();
+
+
+
+    const serviceID = 'default_service';
+    const templateID = 'template_ltl49k5';
+
+    emailjs.sendForm(serviceID, templateID, emailBtn.current, "R8ExsPy3gbCdxglF4")
+      .then(() => {
+        alert('Sent!');
+      }, (err) => {
+        alert(JSON.stringify(err));
+      });
+  }
+
+
   const attachScrollEvent = (locoScroll) => {
     locoScroll.on("scroll", () => {
       let tl = scrollAnimation(showMenu, setShowMenu);
@@ -123,7 +166,7 @@ function MobileConnect() {
     // }
 
     // fadeInanimation();
-  
+
 
     // const deployment = document.querySelector(".deployment-sticker");
     // observe.observe(deployment);
@@ -331,65 +374,65 @@ function MobileConnect() {
             <div className="work mobn kkkkop">CONTACT
             </div>
           </div>
-           <div className="connect-container">
-          <video src={hibye} autoPlay loop muted height={"300px"} width={"450px"} className='hibye'></video>
-           <div className="connect-options">
-        <div className="connect-option-list">
-          <FontAwesomeIcon icon={faYoutube} size='2x' style={{color:'white',opacity:"0.7"}}/>
-        </div>
-        <div className="connect-option-list">
-          <FontAwesomeIcon icon={faGithub} size='2x'  style={{color:'white',opacity:"0.7"}}/>
-        </div>
-        <div className="connect-option-list">
-          <FontAwesomeIcon icon={faXTwitter} size='2x' style={{color:'white',opacity:"0.7"}} />
-        </div>
-        <div className="connect-option-list">
-          <FontAwesomeIcon icon={faLinkedinIn} size='2x'  style={{color:'white',opacity:"0.7"}} />
-        </div>
-      </div>
+          <div className="connect-container">
+            <video src={hibye} autoPlay loop muted height={"300px"} width={"450px"} className='hibye'></video>
+            <div className="connect-options">
+              <div className="connect-option-list">
+                <FontAwesomeIcon icon={faYoutube} size='2x' style={{ color: 'white', opacity: "0.7" }} />
+              </div>
+              <div className="connect-option-list">
+                <FontAwesomeIcon icon={faGithub} size='2x' style={{ color: 'white', opacity: "0.7" }} />
+              </div>
+              <div className="connect-option-list">
+                <FontAwesomeIcon icon={faXTwitter} size='2x' style={{ color: 'white', opacity: "0.7" }} />
+              </div>
+              <div className="connect-option-list">
+                <FontAwesomeIcon icon={faLinkedinIn} size='2x' style={{ color: 'white', opacity: "0.7" }} />
+              </div>
+            </div>
 
-      <div className="write-message">
+            <div className="write-message">
 
-        <div className="input-custom-message-area">
-          <input type="text" name="" id="" className='text-area-message' value={email} onChange={(e)=>{
-            setemail(e.target.value);
-          }} placeholder={"Email"} style={{ marginTop: "5px", marginBottom: "5px" }} />
-          <textarea rows={10} cols={150} wrap='soft' value={message} onChange={(e)=>{
-            setmessage(e.target.value)
-          }}
-          style={{resize:"none"}}
-            className='text-area-message' placeholder={"Message"}>
-          </textarea>
-        </div>
+              <div className="input-custom-message-area">
+                <input type="text" name="" id="" className='text-area-message' value={email} onChange={(e) => {
+                  setemail(e.target.value);
+                }} placeholder={"Email"} style={{ marginTop: "5px", marginBottom: "5px" }} />
+                <textarea rows={10} cols={150} wrap='soft' value={message} onChange={(e) => {
+                  setmessage(e.target.value)
+                }}
+                  style={{ resize: "none" }}
+                  className='text-area-message' placeholder={"Message"}>
+                </textarea>
+              </div>
 
-        <div className="send-message-button-wrapper">
-          <button class="button">
-            <span class="default">Send</span>
-            <span class="success">Sent</span>
-            <div class="left"></div>
-            <div class="right"></div>
-          </button>
-        </div>
+              <div className="send-message-button-wrapper">
+                <button class="button" onClick={()=>getMailId()}>
+                  <span class="default">Send</span>
+                  <span class="success">{onSuccess}</span>
+                  <div class="left"></div>
+                  <div class="right"></div>
+                </button>
+              </div>
 
-      </div>
+            </div>
 
-      <div className="separation-line"></div>
-      <div className="subscribe-content">
-        <div className="button-subscribe-connect">
-          <form>
-            <input className="subscribe-input-email" type="email" placeholder="subscribe@here.com" required/>
-              <button className="subscribe-button-kafka subscribe-content-text" type="submit">Subscribe</button>
-          </form>
-        </div>
-      </div>
-           </div>
-          
+            <div className="separation-line"></div>
+            <div className="subscribe-content">
+              <div className="button-subscribe-connect">
+                <form ref={emailBtn} onSubmit={(event)=>sendEmail(event)}>
+                  <input className="subscribe-input-email" type="email" placeholder="subscribe@here.com" required />
+                  <button className="subscribe-button-kafka subscribe-content-text" type="submit">Subscribe</button>
+                </form>
+              </div>
+            </div>
+          </div>
+
           <Footer dateState={dateState}></Footer>
           {mobileMenu && (
             <SideBar dateState={dateState} id="sidenav"></SideBar>
           )}
         </div>
-        
+
       </div>
     </>
   )

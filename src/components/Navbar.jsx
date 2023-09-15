@@ -88,7 +88,7 @@ function Navbar({showMenu,setShowMenu,mobile,toggleMenu,setText,id}) {
   return (
     <nav className='outer-nav' data-scroll data-scroll-sticky data-scroll-target="#main">
     <div id={id}>
-        <div id="Name" onClick={()=>navigateHandler("/")}><a>Sanyam</a></div>
+        <div id="Name" onClick={()=>navigateHandler("/")}><a>I&S</a></div>
         <div className="animatedClass">
         {<div className='navItems' style={{height:0,overflow:"hidden"}}>
             <ul className='skill_list'>

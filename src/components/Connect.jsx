@@ -1,19 +1,60 @@
-import React, { useEffect,useState } from 'react';
-import "./connect.css";
+import React, { useEffect, useRef, useState } from 'react';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faYoutube, faGithub, faXTwitter, faLinkedinIn } from "@fortawesome/free-brands-svg-icons"
 import { gsap } from "gsap";
+import emailjs from "@emailjs/browser";
+
 function Connect() {
-  const [email,setemail]=useState("");
-  const [message,setmessage]=useState("");
+  const [email, setemail] = useState("");
+  const [message, setmessage] = useState("");
+  const emailBtn = useRef();
+  const [onSuccess,setOnSuccess] = useState("");
+  const getMailId = async()=>{
+
+    await fetch("http://localhost:8000/sendemail",{
+      method:"POST",
+      headers:{
+        "Content-Type":"application/json"
+      },
+      body:JSON.stringify({email,message})
+    }).then(res=>{
+      if(res.status === 201){
+        setOnSuccess("Sent");
+      }else{
+        setOnSuccess("Failed!")
+      }
+    })
+    .catch(err=>{
+      setOnSuccess("Failed!")
+    });
+
+    
+  }
+
+  const sendEmail = (event) => {
+
+    event.preventDefault();
+
+
+
+    const serviceID = 'default_service';
+    const templateID = 'template_ltl49k5';
+
+    emailjs.sendForm(serviceID, templateID, emailBtn.current, "R8ExsPy3gbCdxglF4")
+      .then(() => {
+        alert('Sent!');
+      }, (err) => {
+        alert(JSON.stringify(err));
+      });
+  }
   const turnOffConnect = () => {
     const connectBoxClose = document.getElementsByClassName("connect-card")[0];
     connectBoxClose.classList.add("connect-box-pop-up-skill");
 
-    setTimeout(()=>{
+    setTimeout(() => {
       connectBoxClose.classList.remove("connect-box-pop-up-skill");
       connectBoxClose.classList.remove("connect-box-animation");
-    },400)
+    }, 400)
   }
   useEffect(() => {
     document.querySelectorAll('.button').forEach(button => {
@@ -131,44 +172,44 @@ function Connect() {
   }, [])
   return (
     <div className="connect-card">
-      <div className="close-connect" onClick={() => turnOffConnect()} style={{color:'white'}}>
+      <div className="close-connect" onClick={() => turnOffConnect()} style={{ color: 'white' }}>
         <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="25" height="25" viewBox="0 0 50 50" >
           <path stroke='white' d="M 7.71875 6.28125 L 6.28125 7.71875 L 23.5625 25 L 6.28125 42.28125 L 7.71875 43.71875 L 25 26.4375 L 42.28125 43.71875 L 43.71875 42.28125 L 26.4375 25 L 43.71875 7.71875 L 42.28125 6.28125 L 25 23.5625 Z"></path>
         </svg>
       </div>
       <div className="connect-options">
         <div className="connect-option-list">
-          <FontAwesomeIcon icon={faYoutube} size='2x' style={{color:'white',opacity:"0.7"}}/>
+          <FontAwesomeIcon icon={faYoutube} size='2x' style={{ color: 'white', opacity: "0.7" }} />
         </div>
         <div className="connect-option-list">
-          <FontAwesomeIcon icon={faGithub} size='2x'  style={{color:'white',opacity:"0.7"}}/>
+          <FontAwesomeIcon icon={faGithub} size='2x' style={{ color: 'white', opacity: "0.7" }} />
         </div>
         <div className="connect-option-list">
-          <FontAwesomeIcon icon={faXTwitter} size='2x' style={{color:'white',opacity:"0.7"}} />
+          <FontAwesomeIcon icon={faXTwitter} size='2x' style={{ color: 'white', opacity: "0.7" }} />
         </div>
         <div className="connect-option-list">
-          <FontAwesomeIcon icon={faLinkedinIn} size='2x'  style={{color:'white',opacity:"0.7"}} />
+          <FontAwesomeIcon icon={faLinkedinIn} size='2x' style={{ color: 'white', opacity: "0.7" }} />
         </div>
       </div>
 
       <div className="write-message">
 
         <div className="input-custom-message-area">
-          <input type="text" name="" id="" className='text-area-message' value={email} onChange={(e)=>{
+          <input type="text" name="" id="" className='text-area-message' value={email} onChange={(e) => {
             setemail(e.target.value);
           }} placeholder={"Email"} style={{ marginTop: "5px", marginBottom: "5px" }} />
-          <textarea rows={10} cols={150} wrap='soft' value={message} onChange={(e)=>{
+          <textarea rows={10} cols={150} wrap='soft' value={message} onChange={(e) => {
             setmessage(e.target.value)
           }}
-          style={{resize:"none"}}
+            style={{ resize: "none" }}
             className='text-area-message' placeholder={"Message"}>
           </textarea>
         </div>
 
         <div className="send-message-button-wrapper">
-          <button class="button">
+          <button class="button" onClick={()=>getMailId()}>
             <span class="default">Send</span>
-            <span class="success">Sent</span>
+            <span class="success">{onSuccess}</span>
             <div class="left"></div>
             <div class="right"></div>
           </button>
@@ -179,9 +220,9 @@ function Connect() {
       <div className="separation-line"></div>
       <div className="subscribe-content">
         <div className="button-subscribe-connect">
-          <form>
-            <input className="subscribe-input-email" type="email" placeholder="subscribe@here.com" required/>
-              <button className="subscribe-button-kafka subscribe-content-text" type="submit">Subscribe</button>
+          <form ref={emailBtn} onSubmit={(event) => sendEmail(event)}>
+            <input className="subscribe-input-email" type="email" placeholder="subscribe@here.com" required />
+            <button className="subscribe-button-kafka subscribe-content-text" type="submit">Subscribe</button>
           </form>
         </div>
       </div>

@@ -173,7 +173,7 @@
 }
 
 .send-message-button-wrapper{
-    margin: 10px;
+    margin: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -184,6 +184,7 @@
     opacity: 0.4;
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: 8px;
 }
 .close-connect{
     text-align: right;
@@ -225,3 +226,47 @@
   }
 
 
+.connect-options{
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+}
+.text-area-message::-webkit-scrollbar{
+    background-color: #03030300;
+width: 5px;
+}
+.text-area-message::-webkit-scrollbar-thumb{
+    background-color: #5b5555;
+    border-radius: 2rem;
+}
+.text-area-message{
+    background-color: #00000078;
+    color: white;
+    border: 1px solid rgba(209, 213, 219, 0.3);
+    border-radius: 5px;
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+}
+.text-area-message:hover{
+    cursor:default;
+}
+.text-area-message::placeholder{
+    color: white;
+}
+.labelforarea{
+
+    padding: 10px;
+    font-size: 1.125rem;
+    /* color: #fff; */
+    line-height: 42px;
+    font-family: 'General Sans';
+    font-weight: bold;
+
+}
+.input-custom-message-area{
+    margin-left: auto;
+    width: 90%;
+    margin-right: auto;
+    height: max-content;
+}

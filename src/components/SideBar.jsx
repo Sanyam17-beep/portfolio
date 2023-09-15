@@ -26,7 +26,7 @@ function SideBar({dateState,id,backgroundColor,setBackgroundColor}) {
         <div className="top">
             
         <div id={id}>
-        <div id="mobileName"><a href="#" onClick={()=>{navigateHandler('/');slideUp()}}>Sanyam</a></div>
+        <div id="mobileName"><a href="#" onClick={()=>{navigateHandler('/');slideUp()}}>I&S</a></div>
         <h4 id="mobilemenuHead" className="js-work-link" onClick={slideUp}>Close<span className='underline'></span></h4>
         </div>
         </div>

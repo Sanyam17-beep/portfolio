@@ -257,7 +257,7 @@ function Skills() {
           <div className="xl-container">
             <div className="nidhi">
               <div className="lineSVG">
-                <svg width="348" height="3100" viewBox="0 0 348 2350" fill="none">
+                <svg width="348" height="3000" viewBox="0 0 348 2350" fill="none">
                   <path xmlns="http://www.w3.org/2000/svg" d="M 346.497 1549 L 346.5 1457.5 C 346.5 1448.66 339.336 1441.5 330.5 1441.5 L 17 1441.5 C 8.164 1441.5 1 1434.34 1 1425.5 L -2.286 -1101.351" stroke="url(#paint0_linear_207_14200)" stroke-width="4" stroke-linecap="round" />
                   <defs>
                     <linearGradient id="paint0_linear_207_14200" x1="8.51253" y1="0" x2="308.147" y2="1023.79" gradientUnits="userSpaceOnUse">

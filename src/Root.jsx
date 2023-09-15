@@ -11,6 +11,8 @@ import MobileSkillPage from './pages/MobileSkillPage';
 import MobileConnect from './pages/MobileConnect';
 import SideBar from './components/SideBar';
 import Connect from './components/Connect';
+import Helmet from "react-helmet";
+import Glitch from './components/Glitch';
 
 function Root() {
   const location = useLocation();
@@ -31,7 +33,7 @@ function Root() {
       }
     }
   }, [])
-  
+
   useEffect(() => {
     setTimeout(() => {
       slideUp();
@@ -48,15 +50,23 @@ function Root() {
             <Route path='/experience' element={<Experience></Experience>}></Route>
             <Route path='/projects' element={<Projects></Projects>}></Route>
             {mobileMenu && (
-      <Route path='/connect' element={<MobileConnect></MobileConnect>}></Route>
-      )}  
+              <Route path='/connect' element={<MobileConnect></MobileConnect>}></Route>
+            )}
+            <Route path='*' element={<Glitch></Glitch>}></Route>
           </Routes>
         </AnimatePresence>
       )}
       {mobileMenu && (
         <SideBar dateState={dateState} id="sidenav"></SideBar>
       )}
-      {!loading && !mobileMenu && <Connect></Connect>}
+      {!loading && !mobileMenu && (
+        <>
+          <Helmet>
+            <link rel='stylesheet' href='./connect.css' />
+          </Helmet>
+          <Connect></Connect>
+        </>
+      )}
     </>
   )
 }

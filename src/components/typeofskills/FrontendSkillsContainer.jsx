@@ -1,6 +1,9 @@
 import React from 'react'
 import "../styles/skill.css";
 
+import a1 from  "../../33466.jpg";
+import a2 from  "../../avatar.png";
+import a3 from "../../hacker.png"
 function FrontendSkillsContainer() {
 
     return (
@@ -17,7 +20,7 @@ function FrontendSkillsContainer() {
                                 <path d="M16.944 11h4.306a.75.75 0 0 1 0 1.5h-4.306a5.001 5.001 0 0 1-9.888 0H2.75a.75.75 0 0 1 0-1.5h4.306a5.001 5.001 0 0 1 9.888 0Zm-1.444.75a3.5 3.5 0 1 0-7 0 3.5 3.5 0 0 0 7 0Z" fill='gray' stroke='gray'></path>
                             </svg>
                             <div className='circle'>
-                                <img src="https://github.githubassets.com/images/modules/site/copilot/avatars/2.jpg" width="28" height="28" className="avatar circle mr-3" alt="Octocat avatar" loading="lazy" decoding="async"></img>
+                                <img src= {a1} width="28" height="28" className="avatar circle mr-3" alt="Octocat avatar" loading="lazy" decoding="async"></img>
                             </div>
                         </div>
                         <div className="icons-image" id='two'>
@@ -25,7 +28,7 @@ function FrontendSkillsContainer() {
                                 <path d="M1 12C1 5.925 5.925 1 12 1s11 4.925 11 11-4.925 11-11 11S1 18.075 1 12Zm16.28-2.72a.751.751 0 0 0-.018-1.042.751.751 0 0 0-1.042-.018l-5.97 5.97-2.47-2.47a.751.751 0 0 0-1.042.018.751.751 0 0 0-.018 1.042l3 3a.75.75 0 0 0 1.06 0Z"></path>
                             </svg>
                             <div className='circle'>
-                                <img src="https://github.githubassets.com/images/modules/site/copilot/avatars/2.jpg" width="28" height="28" className="avatar circle mr-3" alt="Octocat avatar" loading="lazy" decoding="async"></img>
+                                <img src={a2} width="28" height="28" className="avatar circle mr-3" alt="Octocat avatar" loading="lazy" decoding="async"></img>
                             </div>
                         </div>
                         <div className="icons-image" id='three'>
@@ -38,7 +41,7 @@ function FrontendSkillsContainer() {
                                 <path d="M8 16A8 8 0 1 1 8 0a8 8 0 0 1 0 16Zm.25-11.25A1.75 1.75 0 1 0 6 6.428v3.144a1.75 1.75 0 1 0 1 0V8.236A2.99 2.99 0 0 0 9 9h.571a1.75 1.75 0 1 0 0-1H9a2 2 0 0 1-1.957-1.586A1.75 1.75 0 0 0 8.25 4.75Z" fill='#a371f7'></path>
                             </svg>
                             <div className='circle'>
-                                <img src="https://github.githubassets.com/images/modules/site/copilot/avatars/2.jpg" width="28" height="28" className="avatar circle mr-3" alt="Octocat avatar" loading="lazy" decoding="async"></img>
+                                <img src={a3} width="28" height="28" className="avatar circle mr-3" alt="Octocat avatar" loading="lazy" decoding="async"></img>
                             </div>
                         </div>
                     </div>

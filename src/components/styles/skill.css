@@ -2,7 +2,7 @@
 @media screen and (min-width:1400px){
     .skills-container{
         padding: 50px 50px 50px 0;
-        margin: auto 100px auto 397px;
+        margin: auto 100px auto 450px;
     }
 }
 .lol{
@@ -31,11 +31,20 @@
 
 @media screen and (min-width:1400px) {
     .images-icon {
+        position: absolute;
+        z-index: 9999;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: flex-start;
         gap: 10px;
+        right: calc(50% + 285px + 16px - 2px)
+    }
+    .single-child{
+        right: calc(50% + 320px + 16px - 2px)
+    }
+    .single-child-backend{
+        right: calc(50% + 304px + 16px - 2px)
     }
 }
 
@@ -111,6 +120,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    position: relative;
 
 }
 
@@ -121,11 +131,11 @@
     transition: stroke-dashoffset 20ms ease-in-out;
 }
 
-@media screen and (min-width:1400px) {
+@media screen and (min-width:1350px) {
     .lineSVG {
         position: absolute !important;
-        right: calc(50% - 17px) !important;
-        bottom: -335px;
+        right: calc(50% - 1px) !important;
+        bottom: -600px;
         overflow: clip;
     }
     /* .type-of-skill-icon-cat::before{
@@ -276,14 +286,10 @@ h3{
 }
 
 @media screen and (min-width:1400px) {
-    .Sanyam{
-        text-align: center;
-        width: 80%;
+    .Sanyam > img{
+        display: block;
         margin-left: auto;
         margin-right: auto;
-        position: relative;
-        top:47%;
-        right: calc(50% - 765px);
     }
     .loki::after{
         content: "ERIENCE";
@@ -476,3 +482,4 @@ background-color: #fff;
     line-height: 1.5rem;
     text-transform: uppercase;
 }
+
