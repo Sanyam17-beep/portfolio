@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css?family=Rubik');
 .connect-container{
     background-color: rgb(0, 0, 0);
     position: sticky;
@@ -183,8 +184,10 @@
     width: 80%;
     opacity: 0.4;
     margin-left: auto;
+    margin-top: 15px;
     margin-right: auto;
-    margin-bottom: 8px;
+    margin-bottom: 23px;
+
 }
 .close-connect{
     text-align: right;
@@ -210,13 +213,13 @@
     border-radius: 0 5px 5px 0;
     color: black;
     text-transform: uppercase;
-    padding: 10px;
+    padding: 8px;
     padding-left: 5px;
-    font-size: 13px;
+    font-size: 15px;
     font-family: Rubik !important;
     position: relative;
     right: 5px;
-    background-color: #fffffff0;
+    background-color: #ffffffcf;
     height: 100%;
     width: 25%;
     font-weight:700;
